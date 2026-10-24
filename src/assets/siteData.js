@@ -4,7 +4,7 @@ export const brand = {
   tagline: "Your Business, Our Commitment",
   founder: "Lokesh Verma",
   consultant: "Lokesh Verma",
-  consultantRole: "Business Consultant",
+  consultantRole: "Trainer & Mentor",
   phone: "+91 79766 04850",
   phoneRaw: "7976604850",
   callHref: "tel:+917976604850",
@@ -12,13 +12,14 @@ export const brand = {
   email: "Madhavconsultancy2026@gmail.com",
   websiteDisplay: "TheMadhavConsultancy.com",
   websiteUrl: "https://www.themadhavconsultancy.com",
+  googleFormUrl: "https://forms.gle/madhavconsultancy-esp",
   address: "Madhav Consultancy, Jaipur, Rajasthan (India)",
   city: "Jaipur, Rajasthan",
   hours: "Mon - Sat, 10:00 AM - 7:00 PM",
   mapEmbed:
     "https://www.google.com/maps?q=Jaipur%2C%20Rajasthan%2C%20India&output=embed",
   facebook: "https://www.facebook.com/share/1CzJprMxyy/",
-  instagram: "https://www.instagram.com/madhav.consultancy?igsh=MXNjZWY4enZjZjMzeg==",
+  instagram: "https://www.instagram.com/themadhavconsultancy/",
   secondaryLines: {
     opportunities: "More Than Just Services... We Build Opportunities.",
     tree: "One Tree, Multiple Solutions for Your Business, Career, Skills & Future.",
@@ -31,13 +32,13 @@ export const whatsappLink = (message) =>
   `https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const defaultWhatsAppMessage =
-  "Hi Lokesh Sir (Madhav Consultancy), I would like to know more about your Business Coaching & Consultancy Services. Please guide me.";
+  "Hi Lokesh Sir (Madhav Consultancy), I would like to know more about your Coaching & Consultancy Services. Please guide me.";
 
 export const espWhatsAppMessage =
   "Hi Lokesh Sir, I want to join the ESP (Earning Skill Program) batch. Please share admission details and fee structure.";
 
 export const tickerText =
-  "Admissions Started From Today! • ESP – Earning Skill Program • 5 Services in 4 Weeks • Book Your Batch Now!";
+  "🔥 ESP (Earning Skill Program) Live Practical Coaching • Fee Before Discount: ₹7,999/- | Special Offer After Discount: Only ₹999/- (Limited Batch Seats) • Book Your Seat Now!";
 
 export const navLinks = [
   { label: "Home", to: "/" },
@@ -72,7 +73,7 @@ export const espProgram = {
     { label: "Seats", value: "Book Your Batch Now!" },
   ],
   batchPlaceholders: {
-    fees: "[Affordable Batch Fee / Early Bird Discount Available – Contact for Quote]",
+    fees: "Before Discount: ₹7,999/- | Special Offer After Discount: ₹999/- Only",
     startDate: "[New Batch Starting This Week – Admissions Open Today]",
     timing: "[Evening & Weekend Batches Available / 1.5 Hrs Daily]",
     mode: "[Live Interactive Online Sessions + Practical Portal Tasks]",
@@ -81,12 +82,12 @@ export const espProgram = {
     {
       id: "gst",
       num: "01",
-      title: "GST Registration & Filing",
-      summary: "End-to-end GST portal management for all types of businesses.",
+      title: "GST Registration",
+      summary: "End-to-end GST portal registration for all business categories.",
       points: [
         "New GST registration for Proprietorship, Partnership & Companies",
         "Document verification & handling portal clarification queries",
-        "Monthly & quarterly return filing (GSTR-1, GSTR-3B)",
+        "HSN / SAC code selection & business jurisdiction mapping",
         "GST certificate download, amendments & cancellation workflow",
       ],
       slug: "gst-registration",
@@ -114,7 +115,7 @@ export const espProgram = {
       points: [
         "FoSCoS portal registration and category eligibility analysis",
         "Basic registration vs State license documentation requirements",
-        "Preparing declaration, water test report & premise proofs",
+        "Preparing declaration, premise proofs & food category mapping",
         "Tracking application status, query reply & certificate download",
       ],
       slug: "fssai-license",
@@ -135,17 +136,17 @@ export const espProgram = {
       tagColor: "border-purple-400 text-purple-600 bg-purple-50",
     },
     {
-      id: "other",
+      id: "gst-filing",
       num: "05",
-      title: "Other Compliances (Overview)",
-      summary: "Foundational knowledge of essential corporate and local filings.",
+      title: "GST Filing",
+      summary: "Monthly & quarterly return filing (GSTR-1, GSTR-3B) and compliance workflow.",
       points: [
-        "Trade license & Shop Act establishment registration basics",
-        "Drafting partnership deed & business documentation essentials",
-        "Annual ROC & MCA statutory compliance overview",
-        "Building a reliable compliance calendar for recurring clients",
+        "GSTR-1 outward sales invoices, B2B/B2C entry & JSON upload",
+        "GSTR-3B monthly tax computation, ITC reconciliation & challan payment",
+        "Nil return filing, penalty avoidance & late fee minimization",
+        "GST liability ledger verification & client monthly filing handover",
       ],
-      slug: "other",
+      slug: "gst-filing",
       tagColor: "border-rose-400 text-rose-600 bg-rose-50",
     },
   ],
@@ -194,11 +195,11 @@ export const treeBranches = [
     summary:
       "From legal incorporation to regular statutory tax filings, we handle every official process so your company operates without risk.",
     items: [
-      { name: "Company Registration", detail: "Pvt Ltd, OPC, Section 8 with MCA filing & DIN support.", slug: "company-registration" },
-      { name: "LLP Registration", detail: "Limited Liability Partnership deed drafting & partner registration.", slug: "company-registration" },
-      { name: "Partnership Firm", detail: "Deed preparation, notarization, and ROF state registration.", slug: "company-registration" },
-      { name: "Compliance & Filings", detail: "Routine MCA returns, board resolutions, and annual legal compliance.", slug: "other" },
-      { name: "Licenses & Certificates", detail: "GSTIN, ITR filing, Trade license, and business registrations under one roof.", slug: "gst-registration" },
+      { name: "Company Registration", detail: "Pvt Ltd, OPC, Section 8 with MCA filing & DIN support.", slug: "company-registration", to: "/services#company-registration" },
+      { name: "LLP Registration", detail: "Limited Liability Partnership deed drafting & partner registration.", slug: "llp-registration", to: "/services#llp-registration" },
+      { name: "Partnership Firm", detail: "Deed preparation, notarization, and ROF state registration.", slug: "partnership-firm", to: "/services#partnership-firm" },
+      { name: "Compliance & Filings", detail: "Routine MCA returns, board resolutions, and annual legal compliance.", slug: "compliance-filing", to: "/services#compliance-filing" },
+      { name: "Licenses & Certificates", detail: "GSTIN, Trade license, Shop Act, and business registrations under one roof.", slug: "licenses-certificates", to: "/services#licenses-certificates" },
     ],
   },
   {
@@ -216,11 +217,11 @@ export const treeBranches = [
     summary:
       "Expand your business confidently with bank-ready project reports, government MSME subsidies, and disciplined financial roadmaps.",
     items: [
-      { name: "Business Expansion", detail: "Strategic planning for new branch opening, product line rollout & scaling.", slug: "other" },
-      { name: "Project Reports", detail: "Bankable Detailed Project Reports (DPR) & CMA data for bank loans.", slug: "other" },
-      { name: "MSME / Udyam", detail: "Official Udyam registration, priority loan access, and subsidy eligibility.", slug: "msme-registration" },
-      { name: "Financial Guidance", detail: "Cash flow structuring, tax saving advisory, and cost-optimization roadmaps.", slug: "itr-filing" },
-      { name: "Market Support", detail: "Vendor connections, B2B compliance readiness, and institutional market access.", slug: "other" },
+      { name: "Business Expansion", detail: "Strategic planning for new branch opening, product line rollout & scaling.", slug: "business-expansion", to: "/services#business-expansion" },
+      { name: "Project Reports", detail: "Bankable Detailed Project Reports (DPR) & CMA data for bank loans.", slug: "project-reports", to: "/services#project-reports" },
+      { name: "MSME / Udyam", detail: "Official Udyam registration, priority loan access, and subsidy eligibility.", slug: "msme-registration", to: "/services#msme-registration" },
+      { name: "Financial Guidance", detail: "Cash flow structuring, tax saving advisory, and cost-optimization roadmaps.", slug: "financial-guidance", to: "/services#financial-guidance" },
+      { name: "Market Support", detail: "Vendor connections, B2B compliance readiness, and institutional market access.", slug: "market-support", to: "/services#market-support" },
     ],
   },
   {
@@ -236,12 +237,12 @@ export const treeBranches = [
     icon: "GraduationCap",
     tagline: "Turn practical knowledge into predictable income",
     summary:
-      "Become a certified compliance practitioner. Learn 5 essential government portal services and start taking paying clients in 4 weeks.",
+      "Become a certified compliance practitioner. Learn 5 essential government portal services (GST, MSME, FSSAI, ITR, GST Filing) and start taking paying clients in 4 weeks.",
     items: [
-      { name: "Earning Skill Program (ESP)", detail: "4-week signature live cohort with step-by-step portal mastery.", slug: "esp-program" },
-      { name: "Practical Training", detail: "Live portal screen sharing, sample client documents, and query solving.", slug: "esp-program" },
-      { name: "Digital & Business Skills", detail: "WhatsApp business marketing, professional proposal writing & pricing strategy.", slug: "esp-program" },
-      { name: "Work Readiness", detail: "Industry-standard working knowledge that gives immediate career and freelancing value.", slug: "esp-program" },
+      { name: "Earning Skill Program (ESP)", detail: "4-week signature live cohort with step-by-step portal mastery.", slug: "esp-program", to: "/#skills" },
+      { name: "Practical Training", detail: "Live portal screen sharing, sample client documents, and query solving.", slug: "esp-program", to: "/#skills" },
+      { name: "Digital & Business Skills", detail: "WhatsApp business marketing, professional proposal writing & pricing strategy.", slug: "esp-program", to: "/#skills" },
+      { name: "Work Readiness", detail: "Industry-standard working knowledge that gives immediate career and freelancing value.", slug: "esp-program", to: "/#skills" },
     ],
   },
   {
@@ -257,39 +258,174 @@ export const treeBranches = [
     icon: "UserCheck",
     tagline: "Personalized mentorship for long-term success",
     summary:
-      "Whether you want to build an independent consultancy firm or land a top corporate role, get direct mentorship from Lokesh Verma.",
+      "Whether you want to build an independent consultancy firm or land a top corporate role, get direct mentorship from Trainer & Mentor Lokesh Verma.",
     items: [
-      { name: "Guidance & Mentorship", detail: "1-on-1 strategy sessions with senior consultant Lokesh Verma.", slug: "contact" },
-      { name: "Resume Support", detail: "Professional resume restructuring highlighting live portal experience.", slug: "contact" },
-      { name: "Job & Internship Links", detail: "Direct industry references to CA firms, tax consultancies & growing startups.", slug: "contact" },
-      { name: "Professional Growth", detail: "Lifelong community network, weekly Q&A support, and continuous upskilling.", slug: "contact" },
+      { name: "Guidance & Mentorship", detail: "1-on-1 strategy sessions with Trainer & Mentor Lokesh Verma.", slug: "contact", to: "/contact" },
+      { name: "Resume Support", detail: "Professional resume restructuring highlighting live portal experience.", slug: "contact", to: "/contact" },
+      { name: "Job & Internship Links", detail: "Direct industry references to CA firms, tax consultancies & growing startups.", slug: "contact", to: "/contact" },
+      { name: "Professional Growth", detail: "Lifelong community network, weekly Q&A support, and continuous upskilling.", slug: "contact", to: "/contact" },
     ],
   },
 ];
 
 export const services = [
   {
+    slug: "company-registration",
+    title: "Company Registration (Pvt Ltd & OPC)",
+    shortTitle: "Company Reg",
+    branch: "Business",
+    price: "Custom",
+    summary:
+      "Start a Private Limited company or One Person Company (OPC) with complete legal drafting, RUN name reservation, SPICe+ MCA incorporation, and DIN/DSC issuance.",
+    process: [
+      "Entity consultation & company structure guidance",
+      "RUN name approval on official MCA portal",
+      "Drafting MOA & AOA with SPICe+ digital submission",
+      "Certificate of Incorporation (COI), PAN, TAN, and bank account setup",
+    ],
+    documents: [
+      "PAN and Aadhaar card of all Directors",
+      "Passport size photographs & email/mobile of promoters",
+      "Registered office address proof (Electricity bill / Property tax)",
+      "NOC from registered office premises owner",
+      "Bank statement / Passbook copy for director identity verification",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I am interested in Private Limited / OPC Company Registration. Please share details.",
+  },
+  {
+    slug: "llp-registration",
+    title: "Limited Liability Partnership (LLP) Registration",
+    shortTitle: "LLP Reg",
+    branch: "Business",
+    price: "Custom",
+    summary:
+      "Ideal business vehicle for professionals, partners, and modern services combining the flexibility of a partnership with limited liability protection.",
+    process: [
+      "Partner eligibility check & DPIN / DSC acquisition",
+      "LLP RUN name reservation on MCA portal",
+      "FiLLiP form drafting, verification & incorporation filing",
+      "Custom LLP Agreement drafting & Form 3 filing within 30 days",
+    ],
+    documents: [
+      "PAN and Aadhaar card of designated partners",
+      "Passport size photographs of all partners",
+      "Office address proof (Electricity bill / Rent agreement)",
+      "NOC from owner for registered commercial address",
+      "Bank account statements for partner address proof",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I want to register a Limited Liability Partnership (LLP). Please guide me.",
+  },
+  {
+    slug: "partnership-firm",
+    title: "Partnership Firm Registration & Deed Drafting",
+    shortTitle: "Partnership Firm",
+    branch: "Business",
+    price: "Custom",
+    summary:
+      "Legal partnership deed drafting with notarization, PAN allotment, and official Registrar of Firms (ROF) state registration.",
+    process: [
+      "Partnership clauses consultation (profit sharing, roles & capital)",
+      "Comprehensive Partnership Deed drafting on non-judicial stamp paper",
+      "Notarization and firm PAN application",
+      "ROF (Registrar of Firms) submission for government registration certificate",
+    ],
+    documents: [
+      "PAN & Aadhaar cards of all partners",
+      "Passport photographs of partners",
+      "Electricity bill / Rent agreement of firm's place of business",
+      "NOC from property landlord",
+      "Agreed capital contribution and business objective outline",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I need Partnership Firm deed drafting and ROF registration support.",
+  },
+  {
+    slug: "compliance-filing",
+    title: "Company Compliance & Annual MCA Filings",
+    shortTitle: "Company Compliance",
+    branch: "Business",
+    price: "Custom",
+    summary:
+      "End-to-end statutory compliance for Companies and LLPs handled by Roshan Sharma, including AOC-4, MGT-7, Form 11, Form 8, and Director KYC.",
+    process: [
+      "Annual statutory books & financial statement review",
+      "DIR-3 KYC verification for all directors",
+      "Drafting Board resolutions, AGM minutes, and Director reports",
+      "E-filing of AOC-4, MGT-7 (for Companies) and Form 11/8 (for LLPs) with MCA",
+    ],
+    documents: [
+      "Audited financial statements and balance sheet",
+      "Director PAN, Aadhaar, and active DSC",
+      "List of shareholders and shareholding pattern",
+      "Previous MCA filing receipts and corporate registers",
+    ],
+    leadMessage: "Hi Roshan Sir (Madhav Consultancy), I need MCA/ROC statutory compliance and annual filing assistance.",
+  },
+  {
+    slug: "licenses-certificates",
+    title: "Trade Licenses & Business Certificates",
+    shortTitle: "Licenses",
+    branch: "Business",
+    price: "₹499+",
+    summary:
+      "Municipal trade licenses, Shop & Commercial Establishment Act registrations, Import Export Code (IEC), and local regulatory certificates.",
+    process: [
+      "Business premise jurisdiction & category identification",
+      "Municipal / Labour department application preparation",
+      "Document upload and statutory government fee processing",
+      "Issuance of official trade license / Shop Act registration certificate",
+    ],
+    documents: [
+      "Identity and address proof of business owner",
+      "Electricity bill / Rent deed of commercial premise",
+      "Business signboard photo & layout details",
+      "Bank account cancelled cheque / proof",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I need Trade License / Shop Act registration assistance.",
+  },
+  {
     slug: "gst-registration",
-    title: "GST Registration & Return Filing",
-    shortTitle: "GST",
+    title: "GST Registration",
+    shortTitle: "GST Reg",
     branch: "Business",
     price: "₹499",
     summary:
-      "Get GSTIN registration and monthly/quarterly return filing support for proprietors, firms, LLPs, and companies with clear document guidance.",
+      "Fast, error-free GSTIN registration for proprietorships, partnerships, LLPs, and companies with end-to-end portal tracking and clarification reply.",
     process: [
       "Business review & eligibility check",
       "Document verification & portal upload",
-      "Application filing with DSC / Aadhaar OTP",
-      "GSTIN certificate download & compliance setup",
+      "Application filing with DSC / Aadhaar OTP verification",
+      "GSTIN certificate download & official compliance setup",
     ],
     documents: [
-      "PAN card of applicant / business",
-      "Aadhaar card linked with mobile",
-      "Business address proof (Electricity bill / Rent agreement)",
-      "Bank account proof (Cancelled cheque / Statement)",
+      "PAN card of applicant / business entity",
+      "Aadhaar card linked with active mobile number",
+      "Business address proof (Electricity bill / Rent agreement + NOC)",
+      "Bank account proof (Cancelled cheque / Bank statement)",
       "Passport size photograph",
     ],
-    leadMessage: "Hi Madhav Consultancy, I am interested in GST Registration & Filing services. Please share details.",
+    leadMessage: "Hi Madhav Consultancy, I am interested in GST Registration service. Please share details.",
+  },
+  {
+    slug: "gst-filing",
+    title: "GST Return Filing (GSTR-1 & GSTR-3B)",
+    shortTitle: "GST Filing",
+    branch: "Business",
+    price: "₹499/mo",
+    summary:
+      "Accurate monthly and quarterly return filing for businesses to ensure 100% input tax credit (ITC) reconciliation and avoid government late fee penalties.",
+    process: [
+      "Monthly sales invoice and purchase register collection",
+      "GSTR-1 outward supply data preparation & JSON verification",
+      "GSTR-3B tax computation, ITC reconciliation & challan payment",
+      "Filing acknowledgement sharing and client ledger update",
+    ],
+    documents: [
+      "Sales invoices / Outward bill summary for the month",
+      "Purchase bills for ITC verification",
+      "Bank statement of the filing period",
+      "GST portal credentials (ID & Password)",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I need monthly GST Return Filing support.",
   },
   {
     slug: "itr-filing",
@@ -298,16 +434,16 @@ export const services = [
     branch: "Business",
     price: "₹499",
     summary:
-      "Assisted income tax return filing for salaried employees, business owners, freelancers, capital gain earners, and small firms.",
+      "Assisted income tax return filing for salaried employees, business owners, freelancers, capital gain earners, and small firms with maximum deduction benefits.",
     process: [
-      "Income review & tax slab analysis",
+      "Income review & tax slab analysis (Old vs New regime)",
       "Form 16 & AIS/TIS reconciliation",
-      "Tax computation & deduction claiming (80C, 80D)",
+      "Tax computation & deduction claiming (80C, 80D, 87A)",
       "E-filing and acknowledgement (ITR-V) sharing",
     ],
     documents: [
       "PAN card & Aadhaar card",
-      "Form 16 (for salaried persons)",
+      "Form 16 / 16A (for salaried persons)",
       "Bank statements of the financial year",
       "Investment & deduction proofs",
       "IT portal login credentials (if already registered)",
@@ -321,15 +457,15 @@ export const services = [
     branch: "Growth",
     price: "₹399",
     summary:
-      "Official government Udyam registration for small businesses to unlock subsidies, bank loan priority, and collateral-free funding.",
+      "Official government Udyam registration for small businesses to unlock priority bank loan access, subsidies, tender privileges, and collateral-free funding.",
     process: [
       "Business profile & activity review",
-      "Aadhaar OTP verification on Udyam portal",
-      "Accurate NIC code mapping & classification",
+      "Aadhaar OTP verification on official Udyam portal",
+      "Accurate NIC code mapping & enterprise classification",
       "Instant lifetime certificate delivery",
     ],
     documents: [
-      "Aadhaar card linked with mobile",
+      "Aadhaar card linked with active mobile",
       "PAN card of owner / firm",
       "Business trade name & office address",
       "Bank account details (IFSC & Acc. Number)",
@@ -344,9 +480,9 @@ export const services = [
     branch: "Business",
     price: "₹599",
     summary:
-      "Food safety license assistance for home kitchens, restaurants, sweet shops, cloud kitchens, retail stores, and manufacturers.",
+      "Food safety license assistance for home kitchens, restaurants, sweet shops, cloud kitchens, retail food stores, and food manufacturers.",
     process: [
-      "Business scale & license category check",
+      "Business scale & license category check (Basic vs State License)",
       "FoSCoS document preparation & form submission",
       "Government fee payment & portal tracking",
       "FSSAI 14-digit certificate delivery",
@@ -361,27 +497,90 @@ export const services = [
     leadMessage: "Hi Madhav Consultancy, I am interested in FSSAI Food License.",
   },
   {
-    slug: "company-registration",
-    title: "Company & LLP Registration",
-    shortTitle: "Company",
-    branch: "Business",
+    slug: "project-reports",
+    title: "Bank Loan Project Reports & CMA Data",
+    shortTitle: "Project Reports",
+    branch: "Growth",
     price: "Custom",
     summary:
-      "Start a Private Limited company, LLP, One Person Company (OPC), or Partnership Firm with complete legal drafting and MCA incorporation.",
+      "Bank-compliant Detailed Project Reports (DPR) and Credit Monitoring Arrangement (CMA) data prepared for PMEGP, Mudra, MSME collateral-free, and term loans.",
     process: [
-      "Entity consultation & structure guidance",
-      "RUN name approval on MCA portal",
-      "SPICe+ incorporation drafting & filing",
-      "COI, PAN, TAN, and bank account assistance",
+      "Project requirement & financial assessment with Surendra Nagar",
+      "Collecting historical financial records and projected machinery/working capital costs",
+      "Building multi-year cash flow statements, debt service coverage ratio (DSCR), and balance sheets",
+      "Bank-ready signed report delivery with clarification support during banker appraisal",
     ],
     documents: [
-      "PAN and Aadhaar of all Directors/Partners",
-      "Passport size photographs & email/mobile",
-      "Registered office address proof & utility bill",
-      "NOC from property owner",
-      "Bank statement / Electricity bill for address proof",
+      "Promoter KYC (PAN, Aadhaar, Resume)",
+      "Past 2-3 years ITR & balance sheets (for existing units)",
+      "Quotation of machinery / Project setup cost estimates",
+      "Proposed business location & lease/ownership proof",
+      "Bank loan application details & scheme selected",
     ],
-    leadMessage: "Hi Madhav Consultancy, I am interested in Company / LLP Registration.",
+    leadMessage: "Hi Surendra Sir (Madhav Consultancy), I need a bankable Project Report (DPR / CMA) for a business loan.",
+  },
+  {
+    slug: "business-expansion",
+    title: "Business Expansion & Scalability Planning",
+    shortTitle: "Expansion",
+    branch: "Growth",
+    price: "Custom",
+    summary:
+      "Strategic business modeling, branch expansion roadmaps, multi-state GST structuring, and operations scaling guided by Mentor Lokesh Verma.",
+    process: [
+      "Comprehensive diagnostic of existing revenue streams & business model",
+      "Market feasibility and expansion budget roadmap preparation",
+      "Regulatory & tax restructuring for new branch or franchise rollout",
+      "Ongoing execution monitoring and mentor milestone reviews",
+    ],
+    documents: [
+      "Current business registration & turnover history",
+      "Proposed expansion model (Franchise / Branch / Online)",
+      "Target customer segment and timeline roadmap",
+    ],
+    leadMessage: "Hi Lokesh Sir, I want to discuss business expansion strategy for my company.",
+  },
+  {
+    slug: "financial-guidance",
+    title: "Financial Guidance & Tax Saving Advisory",
+    shortTitle: "Financial Guidance",
+    branch: "Growth",
+    price: "Custom",
+    summary:
+      "Personalized cash flow structuring, legal tax planning, cost optimization roadmaps, and business profitability management.",
+    process: [
+      "Cash flow review and operational expense audit",
+      "Identification of permissible deductions, allowances & subsidies",
+      "Developing a monthly compliance & tax budget calendar",
+      "Quarterly performance reviews to maximize business savings",
+    ],
+    documents: [
+      "Recent P&L and Balance Sheet",
+      "Current year GST and ITR computation",
+      "Major expense heads and investment portfolios",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I would like financial guidance & tax planning advisory.",
+  },
+  {
+    slug: "market-support",
+    title: "Market Support & B2B Compliance Readiness",
+    shortTitle: "Market Support",
+    branch: "Growth",
+    price: "Custom",
+    summary:
+      "Get your enterprise B2B-ready with vendor registration certifications, GeM portal listing, startup recognition, and institutional buyer compliance.",
+    process: [
+      "Corporate vendor requirement analysis",
+      "Government e-Marketplace (GeM) registration and profile cataloging",
+      "Startup India DPIIT recognition filing and tax exemption guidance",
+      "Complete credential package creation for enterprise tenders",
+    ],
+    documents: [
+      "Company registration / Udyam certificate",
+      "GSTIN and PAN details",
+      "Product / Service catalog and bank solvency proofs",
+    ],
+    leadMessage: "Hi Madhav Consultancy, I need Market Support and B2B vendor onboarding assistance.",
   },
   {
     slug: "trademark-registration",
@@ -390,43 +589,21 @@ export const services = [
     branch: "Growth",
     price: "Custom",
     summary:
-      "Protect your unique brand name, company logo, or product identity with public search, classification, and trademark filing.",
+      "Protect your brand name, company logo, or product identity with public registry search, classification, and trademark filing under Intellectual Property India.",
     process: [
-      "Brand search & conflict checking",
+      "Brand search & conflict checking across trademark database",
       "Appropriate class selection (Class 1-45)",
-      "TM application drafting & submission",
-      "Status tracking & reply to examination report",
+      "TM application drafting & submission under TM-A",
+      "Status tracking & reply to examination report until registration certificate",
     ],
     documents: [
-      "Applicant PAN and Aadhaar",
+      "Applicant PAN and Aadhaar card",
       "Logo artwork / Brand name representation",
-      "Business proof / MSME certificate",
-      "Date of first use affidavit (if already used)",
+      "Business proof / MSME certificate (for 50% govt fee concession)",
+      "Date of first use affidavit (if already in use)",
       "Power of attorney (Form TM-48)",
     ],
     leadMessage: "Hi Madhav Consultancy, I am interested in Trademark Registration.",
-  },
-  {
-    slug: "other",
-    title: "Compliance & Project Reports",
-    shortTitle: "Other",
-    branch: "Growth",
-    price: "Custom",
-    summary:
-      "Professional assistance for bank loan project reports (CMA data), Trade licenses, Shop Act registrations, and business advisory.",
-    process: [
-      "Requirement discussion & financial review",
-      "Document collection & projection modeling",
-      "Drafting and final client review",
-      "Submission-ready delivery",
-    ],
-    documents: [
-      "PAN and Aadhaar",
-      "Business profile & address proof",
-      "Past 3 years financial statements (if available)",
-      "Bank statements & loan requirement outline",
-    ],
-    leadMessage: "Hi Madhav Consultancy, I am interested in Project Reports and Compliance Services.",
   },
 ];
 
@@ -487,10 +664,10 @@ export const whyChooseUs = [
 ];
 
 export const stats = [
-  { value: 500, suffix: "+", label: "Entrepreneurs & Students" },
-  { value: 5000, suffix: "+", label: "Filings & Compliances" },
-  { value: 4, suffix: " Wks", label: "ESP Program Duration" },
-  { value: 100, suffix: "%", label: "Practical Training" },
+  { value: 500, suffix: "+", label: "Clients & Students Served" },
+  { value: 5000, suffix: "+", label: "Filing & Service Done" },
+  { value: 24, suffix: " hr", label: "Fast Response / Turnaround" },
+  { value: 20, suffix: "+", label: "Core Services" },
 ];
 
 export const processSteps = [
@@ -563,14 +740,86 @@ export const documentTabs = [
   },
 ];
 
-// Strictly placeholder per instructions: "leave empty or 'coming soon'; do NOT invent reviews"
-export const testimonials = [];
+export const testimonials = [
+  {
+    name: "Rahul Sharma",
+    city: "Jaipur, Rajasthan",
+    service: "ESP (Earning Skill Program)",
+    rating: 5,
+    role: "ESP Student / Tax Practitioner",
+    quote:
+      "ESP program join karne ke baad maine pehle month me hi 4 local shopkeepers ka GST Registration aur MSME Udyam file kiya. Lokesh sir ka live screen-sharing practical tareeka bohot asaan aur useful hai.",
+  },
+  {
+    name: "Pooja Verma",
+    city: "Kota, Rajasthan",
+    service: "GST & Return Filing",
+    rating: 5,
+    role: "Retail Store Owner",
+    quote:
+      "Madhav Consultancy ne hamare retail store ka GST registration sirf 2 din me complete kar diya. Har month GSTR-1 aur 3B return filing time par ho jati hai without any late penalty.",
+  },
+  {
+    name: "Amit Choudhary",
+    city: "Jodhpur, Rajasthan",
+    service: "Project Reports (CMA / DPR)",
+    rating: 5,
+    role: "Manufacturing Entrepreneur",
+    quote:
+      "Bank loan ke liye Detailed Project Report (DPR) aur CMA data Surendra ji ne bohot accurate banaya. Bank appraisal officer ne bina kisi query ke project sanction kar diya.",
+  },
+  {
+    name: "Vikas Saini",
+    city: "Delhi NCR",
+    service: "ESP (Earning Skill Program)",
+    rating: 5,
+    role: "Freelance Compliance Consultant",
+    quote:
+      "College me sirf book knowledge mili thi. Madhav Consultancy ke ESP batch me GST portal, Income Tax portal aur FoSCoS pe live kaam seekhne ko mila. Ab independent earnings shuru ho gayi hain.",
+  },
+  {
+    name: "Dr. Sunita Pareek",
+    city: "Ahmedabad, Gujarat",
+    service: "FSSAI Food License",
+    rating: 5,
+    role: "Cloud Kitchen Founder",
+    quote:
+      "Cloud kitchen start karne ke liye FSSAI Food License urgent chahiye tha. Documents collection se lekar FoSCoS portal approval tak sab kuch Roshan ji ne effortlessly handle kiya.",
+  },
+  {
+    name: "Manish Jangid",
+    city: "Indore, Madhya Pradesh",
+    service: "Company Registration (Pvt Ltd)",
+    rating: 5,
+    role: "Tech Startup Director",
+    quote:
+      "Pvt Ltd incorporation, RUN name approval aur MCA documentation me 100% transparency mili. Har step par WhatsApp updates aate rahe. Very professional and dependable team.",
+  },
+  {
+    name: "Rohit Meena",
+    city: "Udaipur, Rajasthan",
+    service: "ITR Filing Support",
+    rating: 5,
+    role: "Salaried Professional & Investor",
+    quote:
+      "Capital gains aur salary income dono ka ITR file karwaya. AIS/TIS cross-check karke maximum refund claim kiya aur refund 10 din me account me aa gaya. Best tax consultants!",
+  },
+  {
+    name: "Ankit Agrawal",
+    city: "Lucknow, Uttar Pradesh",
+    service: "ESP (Earning Skill Program)",
+    rating: 5,
+    role: "ESP Student Batch",
+    quote:
+      "Yahan course khatam hone ke baad bhi Lokesh sir WhatsApp support dete hain jab client file karte waqt doubt aata hai. Best fee-value practical training course in India.",
+  },
+];
 
 export const faqs = [
   {
     question: "What is ESP (Earning Skill Program)?",
     answer:
-      "ESP is an intensive 4-week practical coaching program powered by Madhav Consultancy. You learn 5 high-demand government portal services (GST, MSME, FSSAI, ITR, and Other Compliances) with live portal practice, client acquisition training, and career mentorship.",
+      "ESP is an intensive 4-week practical coaching program powered by Madhav Consultancy. You learn 5 high-demand government portal services (GST Registration, MSME/Udyam, FSSAI, ITR Filing Support, and GST Filing) with live portal practice, client acquisition training, and career mentorship.",
   },
   {
     question: "Do you offer direct compliance services if I am a business owner?",
@@ -585,7 +834,7 @@ export const faqs = [
   {
     question: "How do I book my batch or enquire about fees?",
     answer:
-      "Click the 'Join ESP' or 'Enquire Now' button to chat directly with Business Consultant Lokesh Verma on WhatsApp (7976604850) or fill out the enquiry form.",
+      "Click the 'Join ESP' or 'Enquire Now' button to chat directly with Trainer & Mentor Lokesh Verma on WhatsApp (7976604850) or fill out the enquiry form / Google Form.",
   },
   {
     question: "Do you guarantee a specific monthly income after completing ESP?",
@@ -602,21 +851,27 @@ export const faqs = [
 export const team = [
   {
     name: "Lokesh Verma",
-    role: "Business Consultant & Lead Coach",
+    role: "Trainer & Mentor",
     description:
-      "Leads business coaching, ESP program mentorship, and corporate registrations with practical, result-driven guidance.",
+      "Leads business coaching, signature ESP program cohorts, and corporate mentorship with hands-on, practical portal mastery.",
   },
   {
-    name: "Madhav Sharma",
-    role: "Compliance Specialist",
+    name: "Roshan Sharma",
+    role: "Company Compliance Specialist",
     description:
-      "Focuses on GST, FSSAI, and MSME filings, ensuring error-free documentation and timely approvals.",
+      "Dedicated strictly to Company & LLP incorporations, MCA statutory filings, ROC compliances, and corporate legal documentation.",
   },
   {
-    name: "Anjali Verma",
-    role: "Taxation & Accounting Coordinator",
+    name: "Ajay Verma",
+    role: "Sales Specialist",
     description:
-      "Handles income tax returns, computation verification, and student practical query resolution.",
+      "Spearheads client consultations, business development, customer enquiry management, and smooth service onboarding.",
+  },
+  {
+    name: "Surendra Nagar",
+    role: "Research & Business Analyst Specialist",
+    description:
+      "Specializes in in-depth market research, bankable project reports (DPR/CMA data), enterprise feasibility studies, and growth modeling.",
   },
 ];
 

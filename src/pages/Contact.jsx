@@ -35,7 +35,7 @@ export default function Contact() {
         url: "https://www.themadhavconsultancy.com/contact",
         name: "Contact | Madhav Consultancy",
         description:
-          "Contact Business Consultant Lokesh Verma at Madhav Consultancy in Jaipur, Rajasthan for ESP admissions, Company Registration, GST, ITR, MSME, and FSSAI services.",
+          "Contact Trainer & Mentor Lokesh Verma at Madhav Consultancy in Jaipur, Rajasthan for ESP admissions, Company Registration, GST, ITR, MSME, and FSSAI services.",
         isPartOf: {
           "@type": "WebSite",
           "@id": "https://www.themadhavconsultancy.com/#website",
@@ -83,7 +83,7 @@ export default function Contact() {
 
   usePageMeta(
     'Contact | Madhav Consultancy - Jaipur, Rajasthan',
-    'Contact Business Consultant Lokesh Verma at Madhav Consultancy, Jaipur for ESP course admissions, company registrations, and taxation services.',
+    'Contact Trainer & Mentor Lokesh Verma at Madhav Consultancy, Jaipur for ESP course admissions, company registrations, and taxation services.',
     contactSchema
   );
 
@@ -99,7 +99,7 @@ export default function Contact() {
             Let's Talk About Your <span className="text-orange">Skills & Business.</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
-            Whether inquiring about the upcoming <strong>ESP (Earning Skill Program)</strong> batch or needing corporate registration & tax filing support, Consultant Lokesh Verma is here to guide you.
+            Whether inquiring about the upcoming <strong>ESP (Earning Skill Program)</strong> batch or needing corporate registration & tax filing support, Trainer & Mentor Lokesh Verma is here to guide you.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={whatsappLink(defaultWhatsAppMessage)} icon={MessageCircle}>
@@ -137,7 +137,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-widest text-orange">
-                    Principal Consultant
+                    Trainer & Mentor
                   </span>
                   <h3 className="text-xl font-black text-navy">{brand.consultant}</h3>
                   <p className="text-xs font-semibold text-slate-600">{brand.consultantRole}</p>

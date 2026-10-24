@@ -1,12 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageCircle, ShieldCheck, Sparkles, ArrowRight, Briefcase, TrendingUp } from 'lucide-react';
+import {
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  ArrowRight,
+  Briefcase,
+  TrendingUp,
+  Search,
+  CheckCircle2,
+  ListFilter,
+  FileText,
+} from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
 import ServiceCard from '../components/ServiceCard';
 import usePageMeta from '../components/usePageMeta';
-import { defaultWhatsAppMessage, espWhatsAppMessage, services, trustBadges, whatsappLink } from '../assets/siteData';
+import {
+  brand,
+  defaultWhatsAppMessage,
+  espWhatsAppMessage,
+  services,
+  trustBadges,
+  whatsappLink,
+} from '../assets/siteData';
 
 const categories = [
   { id: 'All', label: 'All Services' },
@@ -16,8 +35,193 @@ const categories = [
   { id: 'Tax', label: 'ITR & Taxes' },
 ];
 
+export const allServicesAtoZ = [
+  {
+    name: "Accounting & Bookkeeping Services",
+    letter: "A",
+    branch: "Business",
+    desc: "Monthly financial record maintenance, bank reconciliation, ledger balancing, and financial statements preparation.",
+  },
+  {
+    name: "Annual ROC & MCA Compliances",
+    letter: "A",
+    branch: "Business",
+    desc: "Filing AOC-4, MGT-7, Form 11, Form 8, DIR-3 KYC, and preparing mandatory board resolutions & minutes.",
+  },
+  {
+    name: "Business Expansion & Scalability Planning",
+    letter: "B",
+    branch: "Growth",
+    desc: "Franchise modeling, branch rollout roadmaps, multi-state GST structuring, and operations expansion advisory.",
+  },
+  {
+    name: "CMA Data Preparation (Bank Loans)",
+    letter: "C",
+    branch: "Growth",
+    desc: "Credit Monitoring Arrangement financial projections, ratio analysis, and working capital limits computation for bankers.",
+  },
+  {
+    name: "Company Incorporation (Pvt Ltd & OPC)",
+    letter: "C",
+    branch: "Business",
+    desc: "RUN name approval, SPICe+ MCA incorporation, MOA/AOA drafting, DIN/DSC issuance, PAN, TAN & bank opening.",
+  },
+  {
+    name: "Detailed Project Reports (DPR)",
+    letter: "D",
+    branch: "Growth",
+    desc: "Bankable project viability reports for PMEGP, Mudra loans, MSME schemes, and industrial capital subsidies.",
+  },
+  {
+    name: "Digital Signature Certificate (DSC Class 3)",
+    letter: "D",
+    branch: "Business",
+    desc: "Class 3 DSC with crypto token for directors, partners, e-tenders, GST, and Income Tax portal submissions.",
+  },
+  {
+    name: "Director DIN & KYC Verification",
+    letter: "D",
+    branch: "Business",
+    desc: "Director Identification Number allotment and annual web-based DIR-3 KYC filing on the MCA V3 portal.",
+  },
+  {
+    name: "Earning Skill Program (ESP Practical Coaching)",
+    letter: "E",
+    branch: "Skills",
+    desc: "4-week hands-on coaching mastering 5 portal services (GST Reg, MSME, FSSAI, ITR, GST Filing) with client acquisition roadmap.",
+  },
+  {
+    name: "Financial Guidance & Tax Saving Advisory",
+    letter: "F",
+    branch: "Growth",
+    desc: "Cash flow structuring, corporate tax planning, cost optimization roadmaps, and business profitability management.",
+  },
+  {
+    name: "Food License (FSSAI Basic Registration & State License)",
+    letter: "F",
+    branch: "Business",
+    desc: "FoSCoS portal license issuance for cloud kitchens, home bakers, restaurants, dairy, retail shops, and manufacturers.",
+  },
+  {
+    name: "GeM (Govt. e-Marketplace) Vendor Onboarding",
+    letter: "G",
+    branch: "Growth",
+    desc: "Seller registration, OEM validation, product listing, and bidding compliance on the official GeM portal.",
+  },
+  {
+    name: "GST Registration (New GSTIN Allotment)",
+    letter: "G",
+    branch: "Business",
+    desc: "New GSTIN allotment for proprietorships, partnerships, LLPs, and companies with clarification query handling.",
+  },
+  {
+    name: "GST Return Filing (GSTR-1 & GSTR-3B)",
+    letter: "G",
+    branch: "Business",
+    desc: "Monthly and quarterly return submission, sales invoice reporting, ITC 2B reconciliation, and nil return filing.",
+  },
+  {
+    name: "Import Export Code (IEC) Registration",
+    letter: "I",
+    branch: "Business",
+    desc: "DGFT portal 10-digit IEC license issuance for businesses engaged in international export and import trade.",
+  },
+  {
+    name: "Income Tax Return (ITR-1, 2, 3, 4, 5) Filing",
+    letter: "I",
+    branch: "Business",
+    desc: "Assisted e-filing for salaried persons, business proprietors, professionals, capital gain earners, and firms with AIS/TIS check.",
+  },
+  {
+    name: "Limited Liability Partnership (LLP) Registration",
+    letter: "L",
+    branch: "Business",
+    desc: "FiLLiP incorporation, DPIN, custom LLP agreement drafting, and Form 3 submission with the Registrar of Companies.",
+  },
+  {
+    name: "Market Support & B2B Vendor Readiness",
+    letter: "M",
+    branch: "Growth",
+    desc: "Corporate supplier eligibility compliance, enterprise credentials pack, vendor codes, and institutional market access.",
+  },
+  {
+    name: "MSME / Udyam Registration",
+    letter: "M",
+    branch: "Growth",
+    desc: "Official Aadhaar-linked Udyam certificate for micro, small, and medium businesses to claim collateral-free loans & subsidies.",
+  },
+  {
+    name: "Partnership Firm Registration & Deed Drafting",
+    letter: "P",
+    branch: "Business",
+    desc: "Non-judicial stamp deed drafting, ROF (Registrar of Firms) state registration, and dedicated firm PAN card allotment.",
+  },
+  {
+    name: "Shop & Commercial Establishment Act License",
+    letter: "S",
+    branch: "Business",
+    desc: "State labour department establishment registration certificate for offices, retail stores, and commercial premises.",
+  },
+  {
+    name: "Startup India DPIIT Recognition",
+    letter: "S",
+    branch: "Growth",
+    desc: "DPIIT startup certificate, Section 80-IAC tax exemption guidance, and government seed fund access compliance.",
+  },
+  {
+    name: "Tax Audit & Notice Clarification Support",
+    letter: "T",
+    branch: "Business",
+    desc: "Replying to Income Tax department compliance queries, scrutiny notices, and defective return rectification.",
+  },
+  {
+    name: "Trademark (TM) Search & Registration",
+    letter: "T",
+    branch: "Growth",
+    desc: "Comprehensive public search, trademark application (TM-A) drafting, Vienna codification, and examination reply.",
+  },
+  {
+    name: "Trade License & Municipal Permissions",
+    letter: "T",
+    branch: "Business",
+    desc: "Local municipal corporation trade license issuance and annual statutory trade renewal certificates.",
+  },
+  {
+    name: "Udyam Certificate Updation & Re-classification",
+    letter: "U",
+    branch: "Growth",
+    desc: "Updating turnover, employee numbers, NIC codes, and modifying plant & machinery values on existing Udyam certificates.",
+  },
+];
+
 export default function Services() {
   const [filter, setFilter] = useState('All');
+  const [searchAtoZ, setSearchAtoZ] = useState('');
+  const [activeLetter, setActiveLetter] = useState('All');
+  const location = useLocation();
+
+  // If a hash was provided in URL (e.g. #company-registration), switch to All filter so the card is visible
+  useEffect(() => {
+    if (location.hash) {
+      setFilter('All');
+      const targetId = location.hash.replace('#', '');
+      const timer = window.setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          if (window.lenis) {
+            window.lenis.scrollTo(el, { offset: -110 });
+          } else {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          el.classList.add('ring-4', 'ring-orange', 'transition-all', 'duration-500');
+          setTimeout(() => {
+            el.classList.remove('ring-4', 'ring-orange');
+          }, 2400);
+        }
+      }, 200);
+      return () => window.clearTimeout(timer);
+    }
+  }, [location.hash]);
 
   const servicesSchema = {
     "@context": "https://schema.org",
@@ -45,7 +249,7 @@ export default function Services() {
         "@id": "https://www.themadhavconsultancy.com/services#webpage",
         "url": "https://www.themadhavconsultancy.com/services",
         "name": "Services | Madhav Consultancy",
-        "description": "GST Registration, ITR Filing, MSME Registration, FSSAI License, Trademark Registration, and Company Registration under Madhav Consultancy Business & Growth branches.",
+        "description": "Company Registration, GST Registration, GST Filing, ITR Filing, MSME, FSSAI, Project Reports, and Trademark services under Madhav Consultancy Business & Growth branches.",
         "isPartOf": {
           "@type": "WebSite",
           "@id": "https://www.themadhavconsultancy.com/#website",
@@ -83,7 +287,7 @@ export default function Services() {
 
   usePageMeta(
     'Services | Madhav Consultancy - Business & Growth Branches',
-    'Explore complete GST, ITR, MSME, FSSAI, Trademark, and Company Registration services organized under Madhav Consultancy Business & Growth branches in Jaipur.',
+    'Explore complete Company Registration, GST Registration, GST Filing, ITR, MSME, FSSAI, Trademark, and Project Reports services by Madhav Consultancy in Jaipur.',
     servicesSchema
   );
 
@@ -92,8 +296,23 @@ export default function Services() {
     if (filter === 'Business') return service.branch === 'Business';
     if (filter === 'Growth') return service.branch === 'Growth';
     if (filter === 'Registration') return service.title.includes('Registration');
-    if (filter === 'Tax') return service.title.includes('ITR') || service.title.includes('Tax');
+    if (filter === 'Tax') return service.title.includes('ITR') || service.title.includes('Tax') || service.title.includes('GST');
     return true;
+  });
+
+  // Alphabet letters list for A-Z catalog
+  const availableLetters = useMemo(() => {
+    const letters = new Set(allServicesAtoZ.map((s) => s.letter));
+    return ['All', ...Array.from(letters).sort()];
+  }, []);
+
+  const filteredAtoZ = allServicesAtoZ.filter((item) => {
+    const matchesLetter = activeLetter === 'All' || item.letter === activeLetter;
+    const matchesSearch =
+      searchAtoZ.trim() === '' ||
+      item.name.toLowerCase().includes(searchAtoZ.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchAtoZ.toLowerCase());
+    return matchesLetter && matchesSearch;
   });
 
   return (
@@ -108,20 +327,18 @@ export default function Services() {
             Compliance & Registration Services, <span className="text-orange">Handled Neatly.</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
-            Every service card below includes pricing, step-by-step procedure, required documents, and a direct WhatsApp connection to Consultant Lokesh Verma.
+            Every service card below includes procedure, required documents, pricing, and a direct WhatsApp connection to Trainer & Mentor Lokesh Verma.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={whatsappLink(defaultWhatsAppMessage)} icon={MessageCircle}>
               WhatsApp Now
             </Button>
             <a
-              href={whatsappLink(espWhatsAppMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#skills"
               className="inline-flex items-center gap-2 rounded-full border border-orange bg-orange/10 hover:bg-orange hover:text-white text-orange font-black text-sm uppercase tracking-wider px-5 py-3 transition"
             >
               <Sparkles className="h-4 w-4" />
-              <span>Want to Learn These? Join ESP</span>
+              <span>Want to Learn These? Join ESP (₹999 Only)</span>
             </a>
           </div>
         </div>
@@ -155,16 +372,149 @@ export default function Services() {
         </div>
       </AnimatedSection>
 
+      {/* Detailed Service Cards Grid */}
       <AnimatedSection className="bg-soft py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid gap-6">
           {filteredServices.map((service) => (
-            <div data-reveal key={service.slug}>
+            <div data-reveal key={service.slug} id={service.slug} className="scroll-mt-32">
               <ServiceCard service={service} detailed />
             </div>
           ))}
         </div>
       </AnimatedSection>
 
+      {/* --- A TO Z ALL SERVICES DIRECTORY (Requested by Client) --- */}
+      <AnimatedSection id="atoz-services" className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/20 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-3">
+              <ListFilter className="h-3.5 w-3.5" />
+              <span>Complete Service Catalog</span>
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-navy tracking-tight font-display">
+              All Services <span className="text-orange">A to Z</span>
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 font-medium">
+              A comprehensive index of every corporate incorporation, statutory registration, tax filing, and bank loan report service provided by Madhav Consultancy.
+            </p>
+
+            {/* Quick Search & Letter Filter */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="relative w-full max-w-md">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <input
+                  type="text"
+                  value={searchAtoZ}
+                  onChange={(e) => setSearchAtoZ(e.target.value)}
+                  placeholder="Search any service by name (e.g. GST, Company, FSSAI, Loan)..."
+                  className="w-full pl-11 pr-4 py-2.5 rounded-full border border-navy/15 bg-slate-50 text-xs sm:text-sm font-semibold text-navy outline-none focus:border-orange focus:bg-white shadow-xs"
+                />
+              </div>
+            </div>
+
+            {/* Alphabet Letter Badges */}
+            <div className="mt-5 flex flex-wrap justify-center gap-1.5">
+              {availableLetters.map((letter) => {
+                const isSelected = activeLetter === letter;
+                return (
+                  <button
+                    key={letter}
+                    type="button"
+                    onClick={() => setActiveLetter(letter)}
+                    className={`h-8 min-w-[2rem] px-2.5 rounded-lg text-xs font-black transition-all ${
+                      isSelected
+                        ? 'bg-orange text-white shadow-orangeGlow scale-105'
+                        : 'bg-slate-100 text-navy hover:bg-slate-200'
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* A to Z Service Items Grid */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {filteredAtoZ.map((item, idx) => {
+              const whatsappMsg = `Hi Madhav Consultancy, I am interested in your service: ${item.name}. Please guide me on documentation, process, and timeline.`;
+              const isBusiness = item.branch === 'Business';
+              const isGrowth = item.branch === 'Growth';
+
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-navy/10 bg-slate-50/70 hover:bg-white p-5 shadow-xs hover:shadow-cardHover hover:border-orange/40 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="grid h-8 w-8 place-items-center rounded-xl bg-orange text-white text-xs font-black shadow-xs">
+                        {item.letter}
+                      </span>
+                      <span
+                        className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                          isBusiness
+                            ? 'bg-orange/10 text-orange'
+                            : isGrowth
+                            ? 'bg-emerald-500/10 text-emerald-600'
+                            : 'bg-sky-500/10 text-sky-600'
+                        }`}
+                      >
+                        {item.branch} Vertical
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-black text-navy group-hover:text-orange transition-colors">
+                      {item.name}
+                    </h3>
+
+                    <p className="mt-2 text-xs text-slate-600 leading-relaxed font-medium">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between">
+                    <span className="text-[11px] font-extrabold text-slate-400">
+                      PAN India Assistance
+                    </span>
+
+                    <a
+                      href={whatsappLink(whatsappMsg)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-black text-orange hover:text-navy transition"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5 text-emerald-500" />
+                      <span>Enquire</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {filteredAtoZ.length === 0 && (
+            <div className="rounded-2xl border border-dashed border-slate-300 p-8 text-center bg-slate-50">
+              <p className="text-sm font-bold text-slate-600">
+                No services found matching "{searchAtoZ}".
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchAtoZ('');
+                  setActiveLetter('All');
+                }}
+                className="mt-2 text-xs font-black text-orange underline"
+              >
+                Reset search & letter filter
+              </button>
+            </div>
+          )}
+        </div>
+      </AnimatedSection>
+
+      {/* Trust Signals */}
       <AnimatedSection className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid gap-8 rounded-[2.5rem] bg-navy p-6 text-white shadow-soft md:grid-cols-[1fr_0.75fr] md:p-10">

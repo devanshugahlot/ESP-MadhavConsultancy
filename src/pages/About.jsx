@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import FeatureGrid from '../components/FeatureGrid';
 import PageTransition from '../components/PageTransition';
 import usePageMeta from '../components/usePageMeta';
-import treeImage from '../assets/tree-branches.jpg';
+import treeImage from '../assets/tree-branches-new.png';
 import {
   brand,
   defaultWhatsAppMessage,
@@ -154,7 +154,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
               <article data-reveal key={member.name} className="rounded-3xl border border-navy/10 bg-white p-6 sm:p-7 shadow-soft">
                 <div className="mb-5 grid h-16 w-16 place-items-center rounded-2xl bg-navy text-xl font-black text-orange">

@@ -44,7 +44,7 @@ export default function Home({ onEnquiryOpen }) {
         founder: {
           "@type": "Person",
           name: "Lokesh Verma",
-          jobTitle: "Business Consultant",
+          jobTitle: "Trainer & Mentor",
         },
         address: {
           "@type": "PostalAddress",
@@ -82,7 +82,7 @@ export default function Home({ onEnquiryOpen }) {
         url: "https://www.themadhavconsultancy.com/",
         name: "Madhav Consultancy | Business, Growth, Skills & Career – Jaipur",
         description:
-          "Madhav Consultancy – Educational + Business Coaching, Earning Skill Program (ESP), Company Registration, GST, ITR, MSME, and FSSAI services by Consultant Lokesh Verma in Jaipur.",
+          "Madhav Consultancy – Educational + Business Coaching, Earning Skill Program (ESP), Company Registration, GST, ITR, MSME, and FSSAI services by Trainer & Mentor Lokesh Verma in Jaipur.",
         isPartOf: {
           "@id": "https://www.themadhavconsultancy.com/#website",
         },
@@ -91,7 +91,7 @@ export default function Home({ onEnquiryOpen }) {
         "@type": "Course",
         name: "ESP – Earning Skill Program",
         description:
-          "4-week practical coaching covering 5 essential services: GST Registration & Filing, MSME/Udyam, FSSAI, ITR Filing Support, and Other Compliances with live portal working.",
+          "4-week practical coaching covering 5 essential services: GST Registration, MSME/Udyam, FSSAI, ITR Filing Support, and GST Filing with live portal working.",
         provider: {
           "@type": "Organization",
           name: "Madhav Consultancy",
@@ -114,7 +114,7 @@ export default function Home({ onEnquiryOpen }) {
 
   usePageMeta(
     "Madhav Consultancy | Business, Growth, Skills & Career – Jaipur",
-    "Madhav Consultancy – Educational + Business Coaching, Earning Skill Program (ESP), Company Registration, GST, ITR, MSME, and FSSAI services by Consultant Lokesh Verma in Jaipur, Rajasthan.",
+    "Madhav Consultancy – Educational + Business Coaching, Earning Skill Program (ESP), Company Registration, GST, ITR, MSME, and FSSAI services by Trainer & Mentor Lokesh Verma in Jaipur, Rajasthan.",
     homeSchema
   );
 
@@ -169,15 +169,14 @@ export default function Home({ onEnquiryOpen }) {
               Ready to learn high-income skills or launch your business?
             </h2>
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-200">
-              Connect directly with Business Consultant Lokesh Verma in Jaipur. One WhatsApp message gets you immediate admission guidance or compliance support.
+              Connect directly with Trainer & Mentor Lokesh Verma in Jaipur. One WhatsApp message gets you immediate consultation and compliance support.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
-                href={whatsappLink(espWhatsAppMessage)}
+                href={whatsappLink(defaultWhatsAppMessage)}
                 icon={MessageCircle}
-                className="animate-pulse"
               >
-                Join ESP on WhatsApp
+                Chat on WhatsApp
               </Button>
               <Button
                 variant="ghost"

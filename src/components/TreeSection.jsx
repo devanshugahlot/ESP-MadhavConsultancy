@@ -7,10 +7,9 @@ import {
   UserCheck,
   ArrowDown,
   Sparkles,
-  CheckCircle2,
+  ArrowRight,
 } from 'lucide-react';
-import treeImage from '../assets/tree-branches.jpg';
-import treeDiagram from '../assets/tree-diagram.jpg';
+import treeImage from '../assets/tree-branches-new.png';
 import { brand, treeBranches } from '../assets/siteData';
 
 export default function TreeSection() {
@@ -37,7 +36,7 @@ export default function TreeSection() {
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full bg-orange/10 border border-orange/20 px-4 py-1.5 text-xs font-black text-orange uppercase tracking-widest mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Madhav Ecosystem</span>
+            <span>Madhav Consultancy Ecosystem</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black text-navy tracking-tight font-display">
@@ -53,37 +52,43 @@ export default function TreeSection() {
           </p>
         </div>
 
-        {/* Tree Display & Interactive Navigator */}
-        <div className="mt-12 lg:mt-16 grid items-center gap-8 lg:grid-cols-12">
-          {/* Official Graphic Visual Card */}
-          <motion.div
-            className="lg:col-span-6 xl:col-span-7"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative rounded-[2.5rem] bg-white p-3 sm:p-5 shadow-soft border border-navy/10 overflow-hidden group">
-              <img
-                src={treeImage}
-                alt="Madhav Consultancy - Our Growth, Our Branches Tree showcasing Business, Growth, Skills, and Career"
-                className="w-full h-auto rounded-[2rem] object-cover transition-transform duration-500 group-hover:scale-[1.01]"
-              />
+        {/* Centered Tree Image (Beecho Beech - Visiting card removed) */}
+        <motion.div
+          className="mt-10 sm:mt-12 max-w-xl sm:max-w-2xl mx-auto text-center"
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="relative rounded-[2.5rem] bg-white p-4 sm:p-6 shadow-soft border border-navy/10 overflow-hidden group">
+            <img
+              src={treeImage}
+              alt="Madhav Consultancy Ecosystem Tree - Business, Growth, Skills, and Career"
+              className="w-full h-auto max-h-[520px] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.02]"
+              loading="eager"
+            />
 
-              {/* Overlay Tip */}
-              <div className="absolute bottom-6 inset-x-6 bg-navy/90 backdrop-blur-md rounded-2xl p-3 text-white border border-white/20 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-2">
-                <span className="text-xs sm:text-sm font-bold">
-                  🌿 4 Core Branches to power every stage of your journey
-                </span>
-                <span className="text-[11px] font-extrabold uppercase text-orange bg-white/10 px-3 py-1 rounded-full">
-                  Click any branch below
-                </span>
-              </div>
+            {/* Subtle Centered Caption */}
+            <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-slate-500 px-2">
+              <span className="text-navy font-black">
+                🌱 4 Interconnected Verticals
+              </span>
+              <span className="text-orange font-extrabold uppercase tracking-wide">
+                Explore each branch below ↓
+              </span>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Interactive Branch Navigation Cards */}
-          <div className="lg:col-span-6 xl:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+        {/* 4 Branches Cards Shifted BELOW the Tree */}
+        <div className="mt-12 sm:mt-16">
+          <div className="text-center mb-6">
+            <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+              Select A Branch To Explore Services
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {treeBranches.map((branch) => {
               const iconMap = {
                 Business: Briefcase,
@@ -94,10 +99,10 @@ export default function TreeSection() {
               const Icon = iconMap[branch.name] || Briefcase;
 
               const borderStyles = {
-                orange: 'hover:border-[#FF7A00] hover:shadow-[0_12px_30px_rgba(255,122,0,0.18)]',
-                green: 'hover:border-emerald-500 hover:shadow-[0_12px_30px_rgba(16,185,129,0.18)]',
-                blue: 'hover:border-sky-500 hover:shadow-[0_12px_30px_rgba(2,132,199,0.18)]',
-                purple: 'hover:border-purple-500 hover:shadow-[0_12px_30px_rgba(147,51,234,0.18)]',
+                orange: 'hover:border-[#FF7A00] hover:shadow-[0_16px_36px_rgba(255,122,0,0.18)]',
+                green: 'hover:border-emerald-500 hover:shadow-[0_16px_36px_rgba(16,185,129,0.18)]',
+                blue: 'hover:border-sky-500 hover:shadow-[0_16px_36px_rgba(2,132,199,0.18)]',
+                purple: 'hover:border-purple-500 hover:shadow-[0_16px_36px_rgba(147,51,234,0.18)]',
               };
 
               const iconBgStyles = {
@@ -112,46 +117,48 @@ export default function TreeSection() {
                   key={branch.id}
                   type="button"
                   onClick={() => scrollToBranch(branch.id)}
-                  className={`text-left w-full rounded-2xl border-2 border-transparent bg-white p-4 sm:p-5 shadow-sm transition-all duration-300 ${borderStyles[branch.colorName]} group hover:-translate-y-1`}
+                  className={`text-left w-full rounded-2xl border-2 border-transparent bg-white p-5 shadow-sm transition-all duration-300 ${borderStyles[branch.colorName]} group hover:-translate-y-1 flex flex-col justify-between`}
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-3">
                       <div className={`grid h-12 w-12 place-items-center rounded-2xl ${iconBgStyles[branch.colorName]} transition-transform duration-300 group-hover:scale-110`}>
                         <Icon className="h-6 w-6" />
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h3 className="text-lg font-black text-navy">{branch.title}</h3>
-                          <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${branch.pillBg}`}>
-                            {branch.name}
-                          </span>
-                        </div>
-                        <p className="text-xs font-semibold text-slate-500 mt-0.5">
-                          {branch.tagline}
-                        </p>
-                      </div>
+                      <span className={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full ${branch.pillBg}`}>
+                        {branch.name}
+                      </span>
                     </div>
 
-                    <div className="grid h-8 w-8 place-items-center rounded-full bg-slate-100 text-slate-600 group-hover:bg-navy group-hover:text-white transition">
-                      <ArrowDown className="h-4 w-4" />
-                    </div>
+                    <h3 className="text-lg font-black text-navy group-hover:text-orange transition-colors">
+                      {branch.title}
+                    </h3>
+                    <p className="text-xs font-semibold text-slate-500 mt-0.5">
+                      {branch.tagline}
+                    </p>
+
+                    <p className="mt-3 text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                      {branch.summary}
+                    </p>
                   </div>
 
-                  <p className="mt-3 text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {branch.summary}
-                  </p>
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {branch.items.slice(0, 3).map((item, i) => (
+                        <span key={i} className="text-[10px] font-bold text-slate-700 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/60 truncate max-w-[160px]">
+                          {item.name}
+                        </span>
+                      ))}
+                      {branch.items.length > 3 && (
+                        <span className="text-[10px] font-black text-orange self-center">
+                          +{branch.items.length - 3} more
+                        </span>
+                      )}
+                    </div>
 
-                  <div className="mt-3 pt-3 border-t border-slate-100 flex flex-wrap gap-1.5">
-                    {branch.items.slice(0, 3).map((item, i) => (
-                      <span key={i} className="text-[11px] font-bold text-slate-700 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/60">
-                        {item.name}
-                      </span>
-                    ))}
-                    {branch.items.length > 3 && (
-                      <span className="text-[11px] font-black text-orange self-center ml-1">
-                        +{branch.items.length - 3} more
-                      </span>
-                    )}
+                    <div className="flex items-center justify-between text-xs font-black text-navy group-hover:text-orange transition">
+                      <span>View Branch Details</span>
+                      <ArrowDown className="h-3.5 w-3.5 group-hover:translate-y-0.5 transition-transform" />
+                    </div>
                   </div>
                 </button>
               );

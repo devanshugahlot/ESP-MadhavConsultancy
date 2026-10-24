@@ -119,7 +119,7 @@ export function EnquiryForm({ compact = false, onSubmitted }) {
       </Button>
 
       <p className="text-center text-[11px] text-slate-400">
-        🔒 Your details are kept strictly confidential. Messages open directly with Consultant Lokesh Verma.
+        🔒 Your details are kept strictly confidential. Messages open directly with Trainer & Mentor Lokesh Verma.
       </p>
     </form>
   );
@@ -173,7 +173,7 @@ export default function EnquiryModal({ open, onClose }) {
                 Enquire for ESP or Business Services
               </h2>
               <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-slate-600">
-                Share your details and chat directly with Business Consultant Lokesh Verma in Jaipur.
+                Share your details and chat directly with Trainer & Mentor Lokesh Verma in Jaipur.
               </p>
             </div>
             <EnquiryForm compact onSubmitted={onClose} />

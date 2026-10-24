@@ -115,26 +115,28 @@ export default function FourBranches({ onEnquiryOpen }) {
                 <div className="flex flex-wrap items-center gap-3">
                   {branch.name === 'Skills' ? (
                     <a
-                      href={whatsappLink(espWhatsAppMessage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="#skills"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById('skills');
+                        if (el) {
+                          if (window.lenis) window.lenis.scrollTo(el, { offset: -96 });
+                          else el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
                       className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white px-5 py-2.5 text-xs sm:text-sm font-black shadow-orangeGlow uppercase tracking-wider transition"
                     >
                       <Sparkles className="h-4 w-4" />
-                      <span>Join ESP Batch</span>
+                      <span>View Full ESP Details</span>
                     </a>
                   ) : branch.name === 'Career' ? (
-                    <a
-                      href={whatsappLink(
-                        `Hi Lokesh Sir, I would like to book a 1-on-1 Career & Mentorship session with you.`
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to="/contact"
                       className="inline-flex items-center gap-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white px-5 py-2.5 text-xs sm:text-sm font-black shadow-md uppercase tracking-wider transition"
                     >
                       <MessageCircle className="h-4 w-4" />
                       <span>Connect with Mentor</span>
-                    </a>
+                    </Link>
                   ) : (
                     <Link
                       to="/services"
@@ -164,6 +166,25 @@ export default function FourBranches({ onEnquiryOpen }) {
             <div className="mt-6 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {branch.items.map((item, itemIdx) => {
                 const itemWhatsappMsg = `Hi Madhav Consultancy, I am enquiring about ${item.name} under your ${branch.name} branch. Please share details.`;
+                const targetLink =
+                  item.to ||
+                  (branch.name === 'Skills'
+                    ? '/#skills'
+                    : branch.name === 'Career'
+                    ? '/contact'
+                    : `/services#${item.slug}`);
+
+                const handleDetailsClick = (e) => {
+                  if (targetLink.startsWith('/#')) {
+                    const hashId = targetLink.replace('/#', '');
+                    const targetEl = document.getElementById(hashId);
+                    if (targetEl) {
+                      e.preventDefault();
+                      if (window.lenis) window.lenis.scrollTo(targetEl, { offset: -96 });
+                      else targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                };
 
                 return (
                   <div
@@ -206,8 +227,10 @@ export default function FourBranches({ onEnquiryOpen }) {
                       </a>
 
                       <Link
-                        to="/services"
-                        className="text-xs font-bold text-slate-400 hover:text-navy transition flex items-center gap-1"
+                        to={targetLink}
+                        onClick={handleDetailsClick}
+                        className="text-xs font-bold text-orange hover:text-navy transition flex items-center gap-1 bg-orange/5 hover:bg-orange/10 px-2.5 py-1 rounded-full"
+                        title={`View ${item.name} details`}
                       >
                         <span>Details</span>
                         <ArrowRight className="h-3 w-3" />

@@ -1,10 +1,8 @@
 import React from "react";
-import { Sparkles, ArrowRight } from "lucide-react";
-import { espWhatsAppMessage, tickerText, whatsappLink } from "../assets/siteData";
+import { Sparkles, ArrowRight, FileCheck2 } from "lucide-react";
+import { brand, tickerText } from "../assets/siteData";
 
 export default function AnnouncementTicker({ onEnquiryOpen }) {
-  const repeatedText = `${tickerText}   ★   ${tickerText}   ★   ${tickerText}   ★   ${tickerText}   ★   `;
-
   return (
     <div className="relative z-50 bg-gradient-to-r from-deep via-navy to-deep text-white border-b border-orange/30 overflow-hidden">
       <div className="mx-auto flex items-center justify-between px-3 py-2 text-xs sm:text-sm font-bold">
@@ -14,7 +12,7 @@ export default function AnnouncementTicker({ onEnquiryOpen }) {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
           </span>
-          Admissions Open
+          Special Fee Offer
         </div>
 
         {/* Marquee Track with hover pause */}
@@ -23,26 +21,24 @@ export default function AnnouncementTicker({ onEnquiryOpen }) {
             <span className="inline-flex items-center gap-4">
               <span className="text-orange">★</span> {tickerText}
               <span className="text-orange">★</span> {tickerText}
-              <span className="text-orange">★</span> {tickerText}
-              <span className="text-orange">★</span> {tickerText}
             </span>
             <span className="inline-flex items-center gap-4 ml-4">
-              <span className="text-orange">★</span> {tickerText}
-              <span className="text-orange">★</span> {tickerText}
               <span className="text-orange">★</span> {tickerText}
               <span className="text-orange">★</span> {tickerText}
             </span>
           </div>
         </div>
 
-        {/* Fast Action CTA */}
+        {/* Fast Action CTA: Links to Google Form per client instruction */}
         <div className="flex-none z-10">
           <a
-            href={whatsappLink(espWhatsAppMessage)}
+            href={brand.googleFormUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 bg-white/10 hover:bg-orange hover:text-white border border-white/20 hover:border-orange text-white text-[11px] sm:text-xs font-black uppercase px-2.5 py-1 rounded-full transition-all duration-200"
+            className="inline-flex items-center gap-1.5 bg-orange hover:bg-orange/90 text-white border border-orange font-black text-[11px] sm:text-xs uppercase px-3 py-1 rounded-full shadow-orangeGlow transition-all duration-200 hover:scale-105"
+            title="Fill Google Form to Book Your Seat"
           >
+            <FileCheck2 className="w-3.5 h-3.5" />
             <span>Book Seat</span>
             <ArrowRight className="w-3 h-3" />
           </a>

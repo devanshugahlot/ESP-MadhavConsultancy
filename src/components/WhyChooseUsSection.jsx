@@ -100,7 +100,7 @@ export default function WhyChooseUsSection() {
               Have questions about your business or the ESP program?
             </h4>
             <p className="text-xs sm:text-sm text-slate-300 mt-1">
-              Speak directly with Business Consultant Lokesh Verma in Jaipur.
+              Speak directly with Trainer & Mentor Lokesh Verma in Jaipur.
             </p>
           </div>
           <a

@@ -9,7 +9,7 @@ export default function FloatingActions() {
       <a
         className="floating-call pointer-events-auto shadow-lg hover:scale-110 transition-transform duration-200"
         href={brand.callHref}
-        aria-label="Call Business Consultant Lokesh Verma"
+        aria-label="Call Trainer & Mentor Lokesh Verma"
         title="Call 7976604850"
       >
         <Phone className="h-5 w-5" />
@@ -26,7 +26,7 @@ export default function FloatingActions() {
         <span className="whatsapp-ripple" />
         <MessageCircle className="relative z-10 h-6 w-6" />
         <span className="floating-tooltip whitespace-nowrap">
-          Chat with Consultant Lokesh Verma
+          Chat with Trainer & Mentor Lokesh Verma
         </span>
       </a>
     </div>

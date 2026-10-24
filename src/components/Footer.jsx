@@ -84,13 +84,13 @@ export default function Footer({ onEnquiryOpen }) {
 
             <div className="flex flex-wrap gap-2 pt-1">
               <a
-                href={whatsappLink(espWhatsAppMessage)}
+                href={whatsappLink(defaultWhatsAppMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white font-black text-xs uppercase tracking-wider px-4 py-2 shadow-orangeGlow transition"
+                className="inline-flex items-center gap-1.5 rounded-full bg-orange hover:bg-orange/90 text-white font-black text-xs uppercase tracking-wider px-4 py-2 shadow-orangeGlow transition"
               >
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>Join ESP Batch</span>
+                <MessageCircle className="h-3.5 w-3.5" />
+                <span>WhatsApp Us</span>
               </a>
               <button
                 type="button"

@@ -239,7 +239,7 @@ export default function ESPDetailSection() {
                   Direct Mentor Access
                 </h4>
                 <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                  Continuous guidance from Business Consultant Lokesh Verma. Clear real-time doubts during your first paying client assignments.
+                  Continuous guidance from Trainer & Mentor Lokesh Verma. Clear real-time doubts during your first paying client assignments.
                 </p>
               </div>
               <div className="mt-6 pt-3 border-t border-orange/20 flex items-center gap-1.5 text-orange text-xs font-black uppercase tracking-wider">
@@ -339,7 +339,7 @@ export default function ESPDetailSection() {
                     <CheckCircle2 className="h-12 w-12 text-emerald-600 mx-auto mb-2" />
                     <h5 className="text-lg font-black text-emerald-900">Enquiry Initiated!</h5>
                     <p className="text-xs text-emerald-700 mt-1">
-                      Your enquiry message has opened in WhatsApp. Consultant Lokesh Verma will reply promptly.
+                      Your enquiry message has opened in WhatsApp. Trainer & Mentor Lokesh Verma will reply promptly.
                     </p>
                     <button
                       type="button"
@@ -413,8 +413,19 @@ export default function ESPDetailSection() {
                       <span>Send to WhatsApp / Enquire Now</span>
                     </button>
 
-                    <p className="text-center text-[11px] text-slate-400">
-                      ⚡ Opens directly in WhatsApp for instant conversation with Lokesh Verma.
+                    <div className="mt-2 pt-2 border-t border-slate-100 text-center">
+                      <a
+                        href={brand.googleFormUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 text-xs font-black text-orange hover:text-navy underline transition py-1"
+                      >
+                        <span>Or Click Here to Fill Admission Google Form</span>
+                      </a>
+                    </div>
+
+                    <p className="text-center text-[11px] text-slate-400 mt-1">
+                      ⚡ Opens directly in WhatsApp / Google Form for instant admission processing.
                     </p>
                   </form>
                 )}

@@ -55,7 +55,8 @@ export default function ServiceCard({ service, detailed = false }) {
   return (
     <article
       ref={cardRef}
-      className={`tilt-card group ${detailed ? 'p-6' : 'p-5'}`}
+      id={service.slug}
+      className={`tilt-card group scroll-mt-32 ${detailed ? 'p-6' : 'p-5'}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetTilt}
     >

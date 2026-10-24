@@ -84,8 +84,8 @@ export default function HeroESP({ onEnquiryOpen }) {
             {/* Badges Grid (Expert Guidance, Live Practical Training, Real Govt Portal Work, Career Support) */}
             <div className="mt-6 grid grid-cols-2 gap-3 w-full max-w-xl">
               {[
-                { label: 'Expert Guidance', sub: 'by Lokesh Verma', icon: GraduationCap, color: 'text-orange' },
-                { label: 'Live Practical Training', sub: 'Real case studies', icon: Laptop, color: 'text-emerald-400' },
+                { label: 'Expert Guidance', sub: 'Trainer & Mentor Lokesh Verma', icon: GraduationCap, color: 'text-orange' },
+                { label: 'Live Practical Training', sub: 'Real case studies & files', icon: Laptop, color: 'text-emerald-400' },
                 { label: 'Real Govt. Portal Work', sub: 'GST, FoSCoS, Udyam, ITR', icon: FileText, color: 'text-sky-400' },
                 { label: 'Career Support', sub: 'Client acquisition formula', icon: TrendingUp, color: 'text-purple-400' },
               ].map((badge, idx) => {
@@ -111,19 +111,23 @@ export default function HeroESP({ onEnquiryOpen }) {
               })}
             </div>
 
-            {/* 3 Highlights Ribbon */}
-            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3 w-full max-w-xl">
-              <div className="rounded-xl border border-orange/40 bg-orange/10 p-2.5 sm:p-3 text-center">
-                <p className="text-[10px] sm:text-xs font-bold uppercase text-orange">Status</p>
-                <p className="text-xs sm:text-sm font-black text-white mt-0.5">Admissions Started</p>
-              </div>
-              <div className="rounded-xl border border-sky-400/40 bg-sky-500/10 p-2.5 sm:p-3 text-center">
-                <p className="text-[10px] sm:text-xs font-bold uppercase text-sky-400">Curriculum</p>
-                <p className="text-xs sm:text-sm font-black text-white mt-0.5">5 Services in 4 Weeks</p>
-              </div>
-              <div className="rounded-xl border border-emerald-400/40 bg-emerald-500/10 p-2.5 sm:p-3 text-center">
-                <p className="text-[10px] sm:text-xs font-bold uppercase text-emerald-400">Batch Seats</p>
-                <p className="text-xs sm:text-sm font-black text-white mt-0.5">Book Your Batch Now</p>
+            {/* Status Ribbon (Buttons A & B removed per client instruction) */}
+            <div className="mt-6 w-full max-w-xl">
+              <div className="rounded-2xl border border-orange/40 bg-gradient-to-r from-orange/20 via-orange/10 to-transparent p-3 sm:p-3.5 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange"></span>
+                  </span>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-orange">Current Batch Status</p>
+                    <p className="text-xs sm:text-sm font-black text-white">Admissions Started From Today!</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Offer Fee</p>
+                  <p className="text-xs sm:text-sm font-black text-orange">₹999/- <span className="line-through text-slate-400 font-medium text-[11px]">₹7,999</span></p>
+                </div>
               </div>
             </div>
 
@@ -199,11 +203,11 @@ export default function HeroESP({ onEnquiryOpen }) {
                     <span className="text-slate-300 font-medium">4 Weeks Duration</span>
                   </div>
                   <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] font-bold">
-                    <span className="bg-orange/20 text-orange px-2 py-0.5 rounded-md">GST</span>
+                    <span className="bg-orange/20 text-orange px-2 py-0.5 rounded-md">GST Reg</span>
                     <span className="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-md">MSME</span>
                     <span className="bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded-md">FSSAI</span>
                     <span className="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md">ITR</span>
-                    <span className="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-md">Compliances</span>
+                    <span className="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-md">GST Filing</span>
                   </div>
                 </div>
               </div>
@@ -215,7 +219,7 @@ export default function HeroESP({ onEnquiryOpen }) {
                 <GraduationCap className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-500">Coach & Mentor</p>
+                <p className="text-xs font-bold text-slate-500">Trainer & Mentor</p>
                 <p className="text-sm font-black text-navy">{brand.consultant}</p>
               </div>
             </div>
