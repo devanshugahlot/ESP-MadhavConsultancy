@@ -37,6 +37,12 @@ const categories = [
 
 export const allServicesAtoZ = [
   {
+    name: "80G & 12A Registration (NGO Exemption)",
+    letter: "8",
+    branch: "Business",
+    desc: "Income Tax exemption certificates for NGOs, Section 8 companies, and charitable trusts enabling 50% tax deductions for donors.",
+  },
+  {
     name: "Accounting & Bookkeeping Services",
     letter: "A",
     branch: "Business",
@@ -67,6 +73,12 @@ export const allServicesAtoZ = [
     desc: "RUN name approval, SPICe+ MCA incorporation, MOA/AOA drafting, DIN/DSC issuance, PAN, TAN & bank opening.",
   },
   {
+    name: "CSR-1 Registration (NGOs & Foundations)",
+    letter: "C",
+    branch: "Business",
+    desc: "MCA Form CSR-1 registration enabling eligible non-profits and Section 8 companies to receive corporate CSR funding.",
+  },
+  {
     name: "Detailed Project Reports (DPR)",
     letter: "D",
     branch: "Growth",
@@ -85,10 +97,28 @@ export const allServicesAtoZ = [
     desc: "Director Identification Number allotment and annual web-based DIR-3 KYC filing on the MCA V3 portal.",
   },
   {
+    name: "Drug License (State Pharmacy & Cosmetics)",
+    letter: "D",
+    branch: "Business",
+    desc: "Form 20 & 21 drug sale licenses for retail chemists, wholesale pharmaceutical distributors, and medical stores.",
+  },
+  {
+    name: "E-Way Bill Setup & Consignment Compliance",
+    letter: "E",
+    branch: "Business",
+    desc: "Automated and manual generation of electronic waybills on the GST e-Way Bill portal for goods transport across states.",
+  },
+  {
     name: "Earning Skill Program (ESP Practical Coaching)",
     letter: "E",
     branch: "Skills",
     desc: "4-week hands-on coaching mastering 5 portal services (GST Reg, MSME, FSSAI, ITR, GST Filing) with client acquisition roadmap.",
+  },
+  {
+    name: "FCRA Registration & Prior Permission (MHA)",
+    letter: "F",
+    branch: "Business",
+    desc: "Ministry of Home Affairs compliance for NGOs and charitable organizations receiving overseas foreign donations.",
   },
   {
     name: "Financial Guidance & Tax Saving Advisory",
@@ -97,7 +127,13 @@ export const allServicesAtoZ = [
     desc: "Cash flow structuring, corporate tax planning, cost optimization roadmaps, and business profitability management.",
   },
   {
-    name: "Food License (FSSAI Basic Registration & State License)",
+    name: "Fire Department NOC & Safety Clearance",
+    letter: "F",
+    branch: "Business",
+    desc: "State fire service department inspection assistance, fire safety compliance certification, and commercial NOC issuance.",
+  },
+  {
+    name: "Food License (FSSAI Registration & State License)",
     letter: "F",
     branch: "Business",
     desc: "FoSCoS portal license issuance for cloud kitchens, home bakers, restaurants, dairy, retail shops, and manufacturers.",
@@ -127,10 +163,22 @@ export const allServicesAtoZ = [
     desc: "DGFT portal 10-digit IEC license issuance for businesses engaged in international export and import trade.",
   },
   {
-    name: "Income Tax Return (ITR-1, 2, 3, 4, 5) Filing",
+    name: "Income Tax Return (ITR-1 to 5) Filing",
     letter: "I",
     branch: "Business",
     desc: "Assisted e-filing for salaried persons, business proprietors, professionals, capital gain earners, and firms with AIS/TIS check.",
+  },
+  {
+    name: "ISO Certification (9001, 14001, 27001)",
+    letter: "I",
+    branch: "Growth",
+    desc: "Accredited international standard certifications boosting corporate tender eligibility, client trust, and quality management.",
+  },
+  {
+    name: "Labour License & Contract Labour (CLRA)",
+    letter: "L",
+    branch: "Business",
+    desc: "State labour commissioner registration and contractor licensing under the Contract Labour (Regulation and Abolition) Act.",
   },
   {
     name: "Limited Liability Partnership (LLP) Registration",
@@ -151,10 +199,46 @@ export const allServicesAtoZ = [
     desc: "Official Aadhaar-linked Udyam certificate for micro, small, and medium businesses to claim collateral-free loans & subsidies.",
   },
   {
+    name: "Networth & Annual Turnover Certification",
+    letter: "N",
+    branch: "Growth",
+    desc: "Certified Networth statement and financial turnover certificates for tenders, visas, bank credit lines, and franchise applications.",
+  },
+  {
+    name: "NITI Aayog NGO Darpan & E-Anudaan",
+    letter: "N",
+    branch: "Business",
+    desc: "Unique Darpan ID generation and E-Anudaan portal registration required to access central government grants and schemes.",
+  },
+  {
+    name: "NOC & Commercial Rent Agreement Drafting",
+    letter: "N",
+    branch: "Business",
+    desc: "Legally sound commercial lease deed drafting on stamp paper with landlord NOC for GST, MCA, and municipal registrations.",
+  },
+  {
     name: "Partnership Firm Registration & Deed Drafting",
     letter: "P",
     branch: "Business",
     desc: "Non-judicial stamp deed drafting, ROF (Registrar of Firms) state registration, and dedicated firm PAN card allotment.",
+  },
+  {
+    name: "PF & ESI Registration & Monthly Challans",
+    letter: "P",
+    branch: "Business",
+    desc: "Employee Provident Fund (EPFO) and ESIC establishment registration, monthly ECR challan generation, and employee onboarding.",
+  },
+  {
+    name: "PTEC & PTRC (Professional Tax) Registration",
+    letter: "P",
+    branch: "Business",
+    desc: "Professional Tax Enrolment Certificate (PTEC) for firms and Professional Tax Registration Certificate (PTRC) for employee payroll.",
+  },
+  {
+    name: "Section 8 Company Incorporation (Non-Profit)",
+    letter: "S",
+    branch: "Business",
+    desc: "Incorporation of charitable companies under Section 8 of the Companies Act with central government license, MOA/AOA, and PAN/TAN.",
   },
   {
     name: "Shop & Commercial Establishment Act License",
@@ -187,10 +271,22 @@ export const allServicesAtoZ = [
     desc: "Local municipal corporation trade license issuance and annual statutory trade renewal certificates.",
   },
   {
+    name: "UDIN Assistance & Attestation Coordination",
+    letter: "U",
+    branch: "Business",
+    desc: "Verification and coordination for UDIN-attested certificates, audit reports, and statutory financial attestations.",
+  },
+  {
     name: "Udyam Certificate Updation & Re-classification",
     letter: "U",
     branch: "Growth",
     desc: "Updating turnover, employee numbers, NIC codes, and modifying plant & machinery values on existing Udyam certificates.",
+  },
+  {
+    name: "Virtual Address & Registered Commercial Office",
+    letter: "V",
+    branch: "Business",
+    desc: "Legally approved commercial office address for GSTIN registration, MCA corporate office address, and mailing correspondence.",
   },
 ];
 
@@ -344,47 +440,8 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Interactive Category Filter Tabs */}
-      <AnimatedSection className="py-2">
-        <div className="flex flex-wrap gap-2 justify-center border-b border-navy/10 pb-8 px-4">
-          {categories.map((cat) => {
-            const isActive = filter === cat.id;
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                className={`relative rounded-full px-5 py-2.5 text-xs sm:text-sm font-black transition-colors duration-300 z-10 ${
-                  isActive ? 'text-white' : 'text-navy hover:text-orange bg-slate-100 hover:bg-slate-200'
-                }`}
-                onClick={() => setFilter(cat.id)}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="activeCategory"
-                    className="absolute inset-0 rounded-full bg-navy -z-10 shadow-soft"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-      </AnimatedSection>
-
-      {/* Detailed Service Cards Grid */}
-      <AnimatedSection className="bg-soft py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid gap-6">
-          {filteredServices.map((service) => (
-            <div data-reveal key={service.slug} id={service.slug} className="scroll-mt-32">
-              <ServiceCard service={service} detailed />
-            </div>
-          ))}
-        </div>
-      </AnimatedSection>
-
-      {/* --- A TO Z ALL SERVICES DIRECTORY (Requested by Client) --- */}
-      <AnimatedSection id="atoz-services" className="py-20 bg-white border-t border-slate-200">
+      {/* --- 1. A TO Z ALL SERVICES DIRECTORY (Catalog placed at the top below hero) --- */}
+      <AnimatedSection id="atoz-services" className="py-16 sm:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/20 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-3">
@@ -513,6 +570,57 @@ export default function Services() {
           )}
         </div>
       </AnimatedSection>
+
+      {/* --- 2. In-Depth Service Guides & Category Filter Tabs --- */}
+      <section className="bg-soft pt-14 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 text-center">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/20 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-2">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>In-Depth Service Guides</span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-navy font-display tracking-tight">
+            Detailed Service Process & Requirements
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
+            Review step-by-step government department filing steps, mandatory documents, and price estimates.
+          </p>
+        </div>
+
+        {/* Interactive Category Filter Tabs */}
+        <div className="flex flex-wrap gap-2 justify-center border-b border-navy/10 pb-8 px-4 max-w-7xl mx-auto">
+          {categories.map((cat) => {
+            const isActive = filter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                className={`relative rounded-full px-5 py-2.5 text-xs sm:text-sm font-black transition-colors duration-300 z-10 ${
+                  isActive ? 'text-white' : 'text-navy hover:text-orange bg-white hover:bg-slate-100 shadow-xs'
+                }`}
+                onClick={() => setFilter(cat.id)}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="activeCategory"
+                    className="absolute inset-0 rounded-full bg-navy -z-10 shadow-soft"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Detailed Service Cards Grid */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid gap-6 mt-10">
+          {filteredServices.map((service) => (
+            <div data-reveal key={service.slug} id={service.slug} className="scroll-mt-32">
+              <ServiceCard service={service} detailed />
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Trust Signals */}
       <AnimatedSection className="py-16">

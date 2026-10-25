@@ -52,32 +52,20 @@ export default function TreeSection() {
           </p>
         </div>
 
-        {/* Centered Tree Image (Beecho Beech - Visiting card removed) */}
+        {/* Centered Tree Image (Clean Standalone PNG without card container) */}
         <motion.div
-          className="mt-10 sm:mt-12 max-w-xl sm:max-w-2xl mx-auto text-center"
+          className="mt-8 sm:mt-12 max-w-xl sm:max-w-2xl mx-auto text-center"
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="relative rounded-[2.5rem] bg-white p-4 sm:p-6 shadow-soft border border-navy/10 overflow-hidden group">
-            <img
-              src={treeImage}
-              alt="Madhav Consultancy Ecosystem Tree - Business, Growth, Skills, and Career"
-              className="w-full h-auto max-h-[520px] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.02]"
-              loading="eager"
-            />
-
-            {/* Subtle Centered Caption */}
-            <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-slate-500 px-2">
-              <span className="text-navy font-black">
-                🌱 4 Interconnected Verticals
-              </span>
-              <span className="text-orange font-extrabold uppercase tracking-wide">
-                Explore each branch below ↓
-              </span>
-            </div>
-          </div>
+          <img
+            src={treeImage}
+            alt="Madhav Consultancy Ecosystem Tree - Business, Growth, Skills, and Career"
+            className="w-full h-auto max-h-[520px] object-contain mx-auto drop-shadow-md"
+            loading="eager"
+          />
         </motion.div>
 
         {/* 4 Branches Cards Shifted BELOW the Tree */}

@@ -130,8 +130,14 @@ export default function EnquiryModal({ open, onClose }) {
     if (!open) return undefined;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    if (window.lenis) {
+      window.lenis.stop();
+    }
     return () => {
       document.body.style.overflow = previousOverflow;
+      if (window.lenis) {
+        window.lenis.start();
+      }
     };
   }, [open]);
 
@@ -139,14 +145,16 @@ export default function EnquiryModal({ open, onClose }) {
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 z-[110] grid place-items-center bg-navy/70 p-4 backdrop-blur-xl"
+          className="fixed inset-0 z-[110] grid place-items-center bg-navy/70 p-4 backdrop-blur-xl overflow-y-auto overscroll-contain"
+          data-lenis-prevent="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onMouseDown={onClose}
         >
           <motion.div
-            className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] bg-soft p-6 sm:p-8 shadow-2xl border border-white/20"
+            className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-[2.5rem] bg-soft p-6 sm:p-8 shadow-2xl border border-white/20"
+            data-lenis-prevent="true"
             initial={{ opacity: 0, y: 28, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.98 }}

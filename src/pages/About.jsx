@@ -155,20 +155,61 @@ export default function About() {
           </div>
 
           <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <article data-reveal key={member.name} className="rounded-3xl border border-navy/10 bg-white p-6 sm:p-7 shadow-soft">
-                <div className="mb-5 grid h-16 w-16 place-items-center rounded-2xl bg-navy text-xl font-black text-orange">
-                  {member.name.split(' ').map((p) => p[0]).join('').slice(0, 2)}
-                </div>
-                <h3 className="text-2xl font-black text-navy">{member.name}</h3>
-                <p className="mt-1 text-xs font-black uppercase tracking-wider text-orange">
-                  {member.role}
-                </p>
-                <p className="mt-3.5 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
-                  {member.description}
-                </p>
-              </article>
-            ))}
+            {team.map((member) => {
+              const consultationMsg = `Hi ${member.name} Sir (Madhav Consultancy), I would like to consult with you regarding your role as ${member.role}.`;
+              return (
+                <article
+                  data-reveal
+                  key={member.name}
+                  className="rounded-3xl border border-navy/10 bg-white p-5 sm:p-6 shadow-soft hover:shadow-cardHover hover:border-orange/30 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    {/* Member Photo */}
+                    <div className="relative mb-5 overflow-hidden rounded-2xl aspect-[4/4.5] bg-slate-100 border border-navy/10 shadow-xs">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={`${member.name} - ${member.role}`}
+                          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="h-full w-full grid place-items-center bg-navy text-2xl font-black text-orange">
+                          {member.name.split(' ').map((p) => p[0]).join('').slice(0, 2)}
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+
+                    <div className="mb-2">
+                      <span className="inline-block rounded-full bg-orange/10 border border-orange/20 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-orange">
+                        {member.role}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-black text-navy font-display tracking-tight group-hover:text-orange transition-colors">
+                      {member.name}
+                    </h3>
+
+                    <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
+                      {member.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-100">
+                    <a
+                      href={whatsappLink(consultationMsg)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-50 hover:bg-orange hover:text-white text-navy font-bold text-xs py-2.5 px-3 transition-colors border border-navy/10 hover:border-transparent shadow-2xs"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5 text-emerald-500 group-hover:text-white" />
+                      <span>Connect on WhatsApp</span>
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </AnimatedSection>

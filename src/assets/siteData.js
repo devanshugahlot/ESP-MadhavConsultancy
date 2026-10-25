@@ -1,3 +1,10 @@
+import lokeshImg from './team/lokesh-verma.jpg';
+import roshanImg from './team/roshan-sharma.jpg';
+import ajayImg from './team/ajay-verma.jpg';
+import surendraImg from './team/surendra-nagar.jpg';
+
+export { lokeshImg, roshanImg, ajayImg, surendraImg };
+
 export const brand = {
   name: "Madhav Consultancy",
   initials: "MC",
@@ -38,7 +45,7 @@ export const espWhatsAppMessage =
   "Hi Lokesh Sir, I want to join the ESP (Earning Skill Program) batch. Please share admission details and fee structure.";
 
 export const tickerText =
-  "🔥 ESP (Earning Skill Program) Live Practical Coaching • Fee Before Discount: ₹7,999/- | Special Offer After Discount: Only ₹999/- (Limited Batch Seats) • Book Your Seat Now!";
+  "ESP (Earning Skill Program) Live Practical Coaching • Offer Fee: ₹999/- (Fee Before Discount: ₹7,999/-)";
 
 export const navLinks = [
   { label: "Home", to: "/" },
@@ -365,7 +372,7 @@ export const services = [
     title: "Trade Licenses & Business Certificates",
     shortTitle: "Licenses",
     branch: "Business",
-    price: "₹499+",
+    price: "Custom",
     summary:
       "Municipal trade licenses, Shop & Commercial Establishment Act registrations, Import Export Code (IEC), and local regulatory certificates.",
     process: [
@@ -784,7 +791,7 @@ export const testimonials = [
     rating: 5,
     role: "Cloud Kitchen Founder",
     quote:
-      "Cloud kitchen start karne ke liye FSSAI Food License urgent chahiye tha. Documents collection se lekar FoSCoS portal approval tak sab kuch Roshan ji ne effortlessly handle kiya.",
+      "Cloud kitchen start karne ke liye FSSAI Food License urgent chahiye tha. Documents collection se lekar FoSCoS portal approval tak sab kuch Madhav Consultancy team ne effortlessly handle kiya.",
   },
   {
     name: "Manish Jangid",
@@ -852,24 +859,28 @@ export const team = [
   {
     name: "Lokesh Verma",
     role: "Trainer & Mentor",
+    image: lokeshImg,
     description:
       "Leads business coaching, signature ESP program cohorts, and corporate mentorship with hands-on, practical portal mastery.",
   },
   {
     name: "Roshan Sharma",
     role: "Company Compliance Specialist",
+    image: roshanImg,
     description:
       "Dedicated strictly to Company & LLP incorporations, MCA statutory filings, ROC compliances, and corporate legal documentation.",
   },
   {
     name: "Ajay Verma",
     role: "Sales Specialist",
+    image: ajayImg,
     description:
       "Spearheads client consultations, business development, customer enquiry management, and smooth service onboarding.",
   },
   {
     name: "Surendra Nagar",
     role: "Research & Business Analyst Specialist",
+    image: surendraImg,
     description:
       "Specializes in in-depth market research, bankable project reports (DPR/CMA data), enterprise feasibility studies, and growth modeling.",
   },

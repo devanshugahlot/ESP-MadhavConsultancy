@@ -22,6 +22,7 @@ import {
   brand,
   defaultWhatsAppMessage,
   espWhatsAppMessage,
+  lokeshImg,
   navLinks,
   trustBadges,
   whatsappLink,
@@ -69,9 +70,11 @@ export default function Footer({ onEnquiryOpen }) {
             {/* Consultant Profile Pill */}
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
               <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-orange text-white font-black text-sm">
-                  LV
-                </div>
+                <img
+                  src={lokeshImg}
+                  alt={brand.consultant}
+                  className="h-11 w-11 rounded-xl object-cover border-2 border-orange shrink-0 shadow-sm"
+                />
                 <div>
                   <p className="text-sm font-black text-white">{brand.consultant}</p>
                   <p className="text-xs font-semibold text-orange">{brand.consultantRole}</p>
@@ -159,7 +162,22 @@ export default function Footer({ onEnquiryOpen }) {
               <Link to="/" className="transition hover:text-white">Home</Link>
               <Link to="/about" className="transition hover:text-white">About Us</Link>
               <Link to="/contact" className="transition hover:text-white">Contact</Link>
-              <Link to="/#faq" className="transition hover:text-white">FAQ</Link>
+              <Link
+                to="/#faq"
+                onClick={() => {
+                  const el = document.getElementById('faq');
+                  if (el) {
+                    if (window.lenis) {
+                      window.lenis.scrollTo(el, { offset: -96 });
+                    } else {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                }}
+                className="transition hover:text-white"
+              >
+                FAQ
+              </Link>
               <div className="pt-2 border-t border-white/10 grid gap-1.5 text-xs text-slate-400">
                 <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
                 <Link to="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</Link>

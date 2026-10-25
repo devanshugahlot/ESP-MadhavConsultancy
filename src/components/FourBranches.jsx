@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Briefcase,
@@ -13,15 +13,141 @@ import {
   ShieldCheck,
   Sparkles,
   Phone,
+  X,
 } from 'lucide-react';
 import {
   brand,
   espWhatsAppMessage,
+  services,
   treeBranches,
   whatsappLink,
 } from '../assets/siteData';
 
+function ServiceDetailModal({ service, onClose }) {
+  useEffect(() => {
+    if (!service) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    if (window.lenis) window.lenis.stop();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      if (window.lenis) window.lenis.start();
+    };
+  }, [service]);
+
+  if (!service) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-[120] grid place-items-center bg-navy/70 p-4 backdrop-blur-xl overflow-y-auto overscroll-contain"
+        data-lenis-prevent="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onMouseDown={onClose}
+      >
+        <motion.div
+          className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-[2.5rem] bg-white p-6 sm:p-8 shadow-2xl border border-navy/10"
+          data-lenis-prevent="true"
+          initial={{ opacity: 0, y: 28, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 18, scale: 0.98 }}
+          transition={{ duration: 0.25 }}
+          onMouseDown={(e) => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            className="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full border border-navy/10 bg-slate-100 text-navy transition hover:border-orange hover:text-orange hover:bg-orange/10 shadow-sm"
+            onClick={onClose}
+            aria-label="Close service details"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <div className="flex items-center gap-2 mb-3">
+            <span className="rounded-full bg-orange/10 border border-orange/20 px-3 py-1 text-xs font-black text-orange uppercase tracking-wider">
+              {service.branch} Branch
+            </span>
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-navy">
+              Pricing: {service.price}
+            </span>
+          </div>
+
+          <h3 className="text-2xl sm:text-3xl font-black text-navy font-display pr-10">
+            {service.title}
+          </h3>
+
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+            {service.summary}
+          </p>
+
+          <div className="mt-6 grid gap-6 md:grid-cols-2 bg-slate-50 p-5 rounded-2xl border border-navy/5">
+            {service.process && (
+              <div>
+                <p className="text-xs font-black uppercase tracking-wider text-orange mb-3 flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4" />
+                  <span>Execution Process</span>
+                </p>
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+                  {service.process.map((step, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-orange mt-2 shrink-0" />
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {service.documents && (
+              <div>
+                <p className="text-xs font-black uppercase tracking-wider text-navy mb-3 flex items-center gap-1.5">
+                  <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                  <span>Documents Required</span>
+                </p>
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+                  {service.documents.map((doc, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                      <span>{doc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <a
+              href={whatsappLink(service.leadMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-3 shadow-orangeGlow transition"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span>WhatsApp Expert Now</span>
+            </a>
+
+            <Link
+              to={`/services#${service.slug}`}
+              onClick={onClose}
+              className="inline-flex items-center gap-1.5 text-xs font-black text-navy hover:text-orange transition"
+            >
+              <span>View in All Services Page</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export default function FourBranches({ onEnquiryOpen }) {
+  const [selectedService, setSelectedService] = useState(null);
   return (
     <div className="relative space-y-16 sm:space-y-24 py-12">
       {treeBranches.map((branch, index) => {
@@ -175,14 +301,22 @@ export default function FourBranches({ onEnquiryOpen }) {
                     : `/services#${item.slug}`);
 
                 const handleDetailsClick = (e) => {
-                  if (targetLink.startsWith('/#')) {
-                    const hashId = targetLink.replace('/#', '');
-                    const targetEl = document.getElementById(hashId);
-                    if (targetEl) {
-                      e.preventDefault();
-                      if (window.lenis) window.lenis.scrollTo(targetEl, { offset: -96 });
-                      else targetEl.scrollIntoView({ behavior: 'smooth' });
+                  if (branch.name === 'Skills' || targetLink.startsWith('/#skills')) {
+                    e.preventDefault();
+                    const el = document.getElementById('skills');
+                    if (el) {
+                      if (window.lenis) window.lenis.scrollTo(el, { offset: -96 });
+                      else el.scrollIntoView({ behavior: 'smooth' });
                     }
+                    return;
+                  }
+                  if (branch.name === 'Career') {
+                    return;
+                  }
+                  const matchedService = services.find((s) => s.slug === item.slug);
+                  if (matchedService) {
+                    e.preventDefault();
+                    setSelectedService(matchedService);
                   }
                 };
 
@@ -229,7 +363,7 @@ export default function FourBranches({ onEnquiryOpen }) {
                       <Link
                         to={targetLink}
                         onClick={handleDetailsClick}
-                        className="text-xs font-bold text-orange hover:text-navy transition flex items-center gap-1 bg-orange/5 hover:bg-orange/10 px-2.5 py-1 rounded-full"
+                        className="text-xs font-bold text-orange hover:text-navy transition flex items-center gap-1 bg-orange/5 hover:bg-orange/10 px-2.5 py-1 rounded-full cursor-pointer"
                         title={`View ${item.name} details`}
                       >
                         <span>Details</span>
@@ -243,6 +377,12 @@ export default function FourBranches({ onEnquiryOpen }) {
           </section>
         );
       })}
+
+      {/* Service Quick Detail Modal for Branch Items */}
+      <ServiceDetailModal
+        service={selectedService}
+        onClose={() => setSelectedService(null)}
+      />
     </div>
   );
 }

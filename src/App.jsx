@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import EnquiryModal from './components/EnquiryModal';
 import FloatingActions from './components/FloatingActions';
 import Footer from './components/Footer';
@@ -51,6 +51,7 @@ function AnimatedRoutes({ onEnquiryOpen }) {
     <AnimatePresence mode="wait">
       <Routes location={location} key={`${location.pathname}${location.hash}`}>
         <Route path="/" element={<Home onEnquiryOpen={onEnquiryOpen} />} />
+        <Route path="/faq" element={<Navigate to="/#faq" replace />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
