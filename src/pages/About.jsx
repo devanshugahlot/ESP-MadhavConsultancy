@@ -1,5 +1,6 @@
 import React from 'react';
-import { Award, Building2, MessageCircle, Target, Sparkles, GraduationCap, Briefcase, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Award, Building2, MessageCircle, Target, Sparkles, GraduationCap, Briefcase, TrendingUp, ArrowRight } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import FeatureGrid from '../components/FeatureGrid';
@@ -8,8 +9,10 @@ import SEOHead from '../components/SEOHead';
 import treeImage from '../assets/tree-branches-new.png';
 import {
   brand,
+  companyObjective,
   defaultWhatsAppMessage,
   espWhatsAppMessage,
+  founders,
   team,
   trustBadges,
   whatsappLink,
@@ -100,6 +103,107 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Our Objective Section */}
+      <AnimatedSection className="py-14 sm:py-16 bg-gradient-to-r from-deep via-navy to-deep text-white border-y border-orange/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-orange/20 border border-orange/40 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-4">
+            <Target className="h-3.5 w-3.5" />
+            <span>Our Objective</span>
+          </span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight leading-tight">
+            Building a Support Ecosystem for Seek to Grow
+          </h2>
+          <p className="mt-4 text-base sm:text-xl font-extrabold text-orange tracking-wide">
+            Business • Career • Skills • Growth
+          </p>
+          <p className="mt-4 max-w-3xl mx-auto text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+            Madhav Consultancy brings entrepreneurship support, commercial compliance filings, practical skill development, and career mentorship together under one cohesive platform—empowering individuals and businesses across India.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      {/* Our Founders Section */}
+      <AnimatedSection className="py-20 bg-white border-b border-navy/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-black uppercase tracking-widest text-orange bg-orange/10 px-3.5 py-1.5 rounded-full border border-orange/20">
+              Founding Leadership
+            </span>
+            <h2 data-reveal className="text-3xl sm:text-5xl font-black text-navy mt-3 font-display">
+              Our Founders
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-600">
+              The visionaries driving Madhav Consultancy's mission to bridge education, compliance, and enterprise growth.
+            </p>
+          </div>
+
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
+            {founders.map((founder) => (
+              <article
+                data-reveal
+                key={founder.slug}
+                className="rounded-3xl border border-navy/10 bg-[#FAFBFD] p-6 sm:p-7 shadow-soft hover:shadow-cardHover hover:border-orange/30 transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Photo with Crawlable Link */}
+                  <Link
+                    to={`/about/${founder.slug}`}
+                    className="block relative mb-5 overflow-hidden rounded-2xl aspect-[4/4.5] bg-slate-100 border border-navy/10 shadow-xs"
+                  >
+                    <img
+                      src={founder.image}
+                      alt={`${founder.name} - ${founder.role}`}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                      <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                        <span>View Profile</span>
+                        <ArrowRight className="h-3.5 w-3.5 text-orange" />
+                      </span>
+                    </div>
+                  </Link>
+
+                  <div className="mb-2">
+                    <span className="inline-block rounded-full bg-orange/10 border border-orange/20 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-orange">
+                      {founder.role}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-black text-navy font-display tracking-tight group-hover:text-orange transition-colors">
+                    <Link to={`/about/${founder.slug}`}>{founder.name}</Link>
+                  </h3>
+
+                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
+                    {founder.oneLineBio}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <Link
+                    to={`/about/${founder.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-extrabold text-navy hover:text-orange transition group/btn"
+                  >
+                    <span>Read Full Profile</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-orange group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                  <a
+                    href={whatsappLink(`Hi ${founder.name} Sir (Madhav Consultancy), I would like to connect with you regarding your role as ${founder.role}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid h-8 w-8 place-items-center rounded-full bg-slate-100 hover:bg-orange hover:text-white text-navy transition"
+                    title={`Connect with ${founder.name} on WhatsApp`}
+                  >
+                    <MessageCircle className="h-4 w-4 text-emerald-500 group-hover:text-white" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
 
       {/* 3 Pillars: Vision, Mission, Coaching */}
       <AnimatedSection className="bg-soft py-16">

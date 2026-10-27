@@ -29,46 +29,46 @@ export default function Contact() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.themadhavconsultancy.com/contact#breadcrumb",
+        "@id": "https://themadhavconsultancy.com/contact#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.themadhavconsultancy.com/",
+            "item": "https://themadhavconsultancy.com/",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Contact",
-            "item": "https://www.themadhavconsultancy.com/contact",
+            "item": "https://themadhavconsultancy.com/contact",
           },
         ],
       },
       {
         "@type": "ContactPage",
-        "@id": "https://www.themadhavconsultancy.com/contact#webpage",
-        url: "https://www.themadhavconsultancy.com/contact",
+        "@id": "https://themadhavconsultancy.com/contact#webpage",
+        url: "https://themadhavconsultancy.com/contact",
         name: "Contact | Madhav Consultancy",
         description:
           "Contact Trainer & Mentor Lokesh Verma at Madhav Consultancy in Jaipur, Rajasthan for ESP admissions, Company Registration, GST, ITR, MSME, and FSSAI services.",
         isPartOf: {
           "@type": "WebSite",
-          "@id": "https://www.themadhavconsultancy.com/#website",
+          "@id": "https://themadhavconsultancy.com/#website",
           name: "Madhav Consultancy",
-          url: "https://www.themadhavconsultancy.com/",
+          url: "https://themadhavconsultancy.com/",
         },
         publisher: {
           "@type": "Organization",
-          "@id": "https://www.themadhavconsultancy.com/#organization",
+          "@id": "https://themadhavconsultancy.com/#organization",
         },
       },
       {
         "@type": "ProfessionalService",
-        "@id": "https://www.themadhavconsultancy.com/#localbusiness",
+        "@id": "https://themadhavconsultancy.com/#localbusiness",
         name: "Madhav Consultancy",
-        image: "https://www.themadhavconsultancy.com/logo.jpg",
-        url: "https://www.themadhavconsultancy.com/",
+        image: "https://themadhavconsultancy.com/logo.jpg",
+        url: "https://themadhavconsultancy.com/",
         telephone: "+917976604850",
         email: "madhavconsultancy2026@gmail.com",
         address: {

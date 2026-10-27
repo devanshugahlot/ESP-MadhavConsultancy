@@ -51,6 +51,7 @@ export default function Home({ onEnquiryOpen }) {
         "@id": "https://themadhavconsultancy.com/#organization",
         name: "Madhav Consultancy",
         url: "https://themadhavconsultancy.com/",
+        slogan: "Building a Support Ecosystem for Seek to Grow",
         logo: {
           "@type": "ImageObject",
           url: "https://themadhavconsultancy.com/logo.jpg",
@@ -58,8 +59,10 @@ export default function Home({ onEnquiryOpen }) {
         },
         founder: {
           "@type": "Person",
+          "@id": "https://themadhavconsultancy.com/about/lokesh-verma#person",
           name: "Lokesh Verma",
-          jobTitle: "Trainer & Mentor",
+          jobTitle: "Founder",
+          url: "https://themadhavconsultancy.com/about/lokesh-verma",
         },
         sameAs: [
           brand.facebook,
@@ -136,12 +139,25 @@ export default function Home({ onEnquiryOpen }) {
     <PageTransition>
       <SEOHead
         title="Madhav Consultancy: GST, ITR, MSME, FSSAI Services & ESP Skill Program"
-        description="GST, ITR, MSME, FSSAI, Trademark & Company Registration with expert support. Join ESP, our live practical skill program. Free consultation."
+        description="Building a Support Ecosystem for Seek to Grow: Business, Career, Skills & Growth. Founder Lokesh Verma; Co-Founders Ajay Verma & Surendra Nagar."
         canonical="/"
         schema={homeSchema}
       />
       {/* 3. HERO = ESP advertisement (main focus of the page) */}
       <HeroESP onEnquiryOpen={onEnquiryOpen} />
+
+      {/* Ecosystem Objective Banner */}
+      <section className="bg-navy/5 border-y border-navy/10 py-4 sm:py-5 px-4 text-center">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm font-extrabold text-navy tracking-tight">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-orange/15 border border-orange/30 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-orange shrink-0">
+            <Sparkles className="w-3 h-3" />
+            Our Objective
+          </span>
+          <span className="text-navy font-bold sm:font-extrabold">
+            Building a Support Ecosystem for Seek to Grow: Business • Career • Skills • Growth
+          </span>
+        </div>
+      </section>
 
       {/* 4. TREE SECTION: "Our Growth, Our Branches" */}
       <TreeSection />

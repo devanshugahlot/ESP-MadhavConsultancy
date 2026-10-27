@@ -17,6 +17,7 @@ import GrowthPage from './pages/GrowthPage';
 import SkillsESPPage from './pages/SkillsESPPage';
 import CareerPage from './pages/CareerPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
+import FounderProfilePage from './pages/FounderProfilePage';
 import LegalPage from './pages/LegalPage';
 
 function ScrollRestoration() {
@@ -64,6 +65,7 @@ function AnimatedRoutes({ onEnquiryOpen }) {
         <Route path="/career" element={<CareerPage onEnquiryOpen={onEnquiryOpen} />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
+        <Route path="/about/:founderSlug" element={<FounderProfilePage onEnquiryOpen={onEnquiryOpen} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<Navigate to="/#faq" replace />} />
 

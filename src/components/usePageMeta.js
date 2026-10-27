@@ -20,7 +20,7 @@ export default function usePageMeta(title, description, schema) {
     updateMetaTag('name', 'description', description);
 
     // 3. Canonical URL
-    const canonicalUrl = `https://www.themadhavconsultancy.com${window.location.pathname}`;
+    const canonicalUrl = `https://themadhavconsultancy.com${window.location.pathname}`;
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
@@ -33,7 +33,7 @@ export default function usePageMeta(title, description, schema) {
     updateMetaTag('property', 'og:title', title);
     updateMetaTag('property', 'og:description', description);
     updateMetaTag('property', 'og:url', canonicalUrl);
-    updateMetaTag('property', 'og:image', 'https://www.themadhavconsultancy.com/logo.jpg');
+    updateMetaTag('property', 'og:image', 'https://themadhavconsultancy.com/logo.jpg');
     updateMetaTag('property', 'og:type', 'website');
     updateMetaTag('property', 'og:site_name', 'Madhav Consultancy');
 
@@ -41,7 +41,7 @@ export default function usePageMeta(title, description, schema) {
     updateMetaTag('name', 'twitter:card', 'summary_large_image');
     updateMetaTag('name', 'twitter:title', title);
     updateMetaTag('name', 'twitter:description', description);
-    updateMetaTag('name', 'twitter:image', 'https://www.themadhavconsultancy.com/logo.jpg');
+    updateMetaTag('name', 'twitter:image', 'https://themadhavconsultancy.com/logo.jpg');
 
     // 6. Schema JSON-LD Script tag
     let schemaScript = document.getElementById('jsonld-schema');

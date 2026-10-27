@@ -76,7 +76,9 @@ export default function Footer({ onEnquiryOpen }) {
                   className="h-11 w-11 rounded-xl object-cover border-2 border-orange shrink-0 shadow-sm"
                 />
                 <div>
-                  <p className="text-sm font-black text-white">{brand.consultant}</p>
+                  <Link to="/about/lokesh-verma" className="text-sm font-black text-white hover:text-orange transition block">
+                    {brand.consultant}
+                  </Link>
                   <p className="text-xs font-semibold text-orange">{brand.consultantRole}</p>
                 </div>
               </div>
@@ -177,6 +179,12 @@ export default function Footer({ onEnquiryOpen }) {
               >
                 FAQ
               </Link>
+              <div className="pt-2 border-t border-white/10 grid gap-1.5 text-xs text-slate-300">
+                <p className="text-[10px] font-black uppercase tracking-wider text-orange">Our Founders:</p>
+                <Link to="/about/lokesh-verma" className="hover:text-white transition">Lokesh Verma (Founder)</Link>
+                <Link to="/about/ajay-verma" className="hover:text-white transition">Ajay Verma (Co-Founder)</Link>
+                <Link to="/about/surendra-nagar" className="hover:text-white transition">Surendra Nagar (Co-Founder)</Link>
+              </div>
               <div className="pt-2 border-t border-white/10 grid gap-1.5 text-xs text-slate-400">
                 <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
                 <Link to="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</Link>

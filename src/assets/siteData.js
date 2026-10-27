@@ -5,6 +5,9 @@ import surendraImg from './team/surendra-nagar.jpg';
 
 export { lokeshImg, roshanImg, ajayImg, surendraImg };
 
+export const companyObjective =
+  "Building a Support Ecosystem for Seek to Grow: Business • Career • Skills • Growth";
+
 export const brand = {
   name: "Madhav Consultancy",
   initials: "MC",
@@ -1470,6 +1473,87 @@ export const team = [
     image: surendraImg,
     description:
       "Trains learners in market research, business analysis, feasibility assessment, and strategic planning to develop analytical thinking and informed decision-making skills.",
+  },
+];
+
+export const founders = [
+  {
+    slug: "lokesh-verma",
+    name: "Lokesh Verma",
+    role: "Founder",
+    fullRole: "Founder & Lead Trainer",
+    designation: "Founder",
+    seoTitle: "Lokesh Verma - Founder & Mentor | Madhav Consultancy",
+    seoDescription:
+      "Meet Lokesh Verma, Founder and Trainer at Madhav Consultancy. Leading business coaching, signature ESP portal training and corporate compliance mentorship.",
+    h1: "Lokesh Verma – Founder & Lead Trainer",
+    image: lokeshImg,
+    oneLineBio:
+      "Founder leading business coaching, signature ESP program cohorts, and corporate mentorship with hands-on portal mastery.",
+    socialLinks: [
+      { name: "Instagram", url: brand.instagram },
+      { name: "Facebook", url: brand.facebook },
+      // TODO: Add official personal LinkedIn URL when provided by client
+      // TODO: Add official personal Twitter / X URL when provided by client
+    ],
+    bio: [
+      "Lokesh Verma is the Founder and Lead Trainer at Madhav Consultancy, headquartered in Jaipur, Rajasthan. With a vision to bridge the gap between theoretical knowledge and practical execution, Lokesh established Madhav Consultancy around the core institutional objective: 'Building a Support Ecosystem for Seek to Grow: Business • Career • Skills • Growth'.",
+      "Under his leadership, Madhav Consultancy has evolved from a standard taxation and company filing consultancy into an integrated business and career empowerment ecosystem. Observing that students, fresh commerce graduates, and aspiring professionals often lack hands-on portal exposure, Lokesh pioneered the signature ESP (Earning Skill Program)—a live practical training program guiding learners screen-by-screen through official GST, ITR, MSME, and FSSAI portals.",
+      "As an active mentor and trainer, Lokesh personally leads interactive cohorts and counsels emerging enterprises on statutory compliance, MCA filings, and business growth roadmaps. His training philosophy emphasizes real document processing, client communication discipline, and zero false income guarantees—empowering participants to build sustainable consulting practices across India.",
+    ],
+    // TODO: Founder can expand on personalized journey, educational background, certifications, and milestones
+  },
+  {
+    slug: "ajay-verma",
+    name: "Ajay Verma",
+    role: "Co-Founder",
+    fullRole: "Co-Founder & Sales Specialist",
+    designation: "Co-Founder",
+    seoTitle: "Ajay Verma - Co-Founder & Mentor | Madhav Consultancy",
+    seoDescription:
+      "Meet Ajay Verma, Co-Founder and Sales Specialist at Madhav Consultancy. Guiding learners in client communication, business development and lead acquisition.",
+    h1: "Ajay Verma – Co-Founder & Sales Specialist",
+    image: ajayImg,
+    oneLineBio:
+      "Co-Founder spearheading client consultation, business development, customer communication, and practical sales training.",
+    socialLinks: [
+      { name: "Instagram", url: brand.instagram },
+      { name: "Facebook", url: brand.facebook },
+      // TODO: Add official personal LinkedIn URL when provided by client
+      // TODO: Add official personal Twitter / X URL when provided by client
+    ],
+    bio: [
+      "Ajay Verma is the Co-Founder and Sales Specialist at Madhav Consultancy. Instrumental in developing the consultancy's commercial outreach and client engagement models, Ajay oversees business development, client relationship workflows, and sales operations across all four branches of the firm.",
+      "Recognizing that technical filing knowledge alone is insufficient without strong communication skills, Ajay trains learners and early-stage consulting practitioners in practical client handling. His mentorship focuses on consultative dialogue, client discovery, requirement analysis, proposal drafting, and ethical sales closing without aggressive or misleading pitches.",
+      "Under his strategic guidance, Madhav Consultancy maintains high client satisfaction and repeat engagement for business incorporation and compliance services. As part of the founding leadership team, Ajay works closely with co-founders to uphold the organization's commitment to transparent client advisory, accountability, and nationwide service delivery.",
+    ],
+    // TODO: Founder can expand on personalized journey, educational background, certifications, and milestones
+  },
+  {
+    slug: "surendra-nagar",
+    name: "Surendra Nagar",
+    role: "Co-Founder",
+    fullRole: "Co-Founder & Business Analyst",
+    designation: "Co-Founder",
+    seoTitle: "Surendra Nagar - Co-Founder & Lead | Madhav Consultancy",
+    seoDescription:
+      "Meet Surendra Nagar, Co-Founder and Business Analyst at Madhav Consultancy. Guiding learners in market research, feasibility analysis and project reports.",
+    h1: "Surendra Nagar – Co-Founder & Business Analyst",
+    image: surendraImg,
+    oneLineBio:
+      "Co-Founder specializing in enterprise feasibility studies, market analysis, DPR / CMA data project reports, and strategic growth.",
+    socialLinks: [
+      { name: "Instagram", url: brand.instagram },
+      { name: "Facebook", url: brand.facebook },
+      // TODO: Add official personal LinkedIn URL when provided by client
+      // TODO: Add official personal Twitter / X URL when provided by client
+    ],
+    bio: [
+      "Surendra Nagar is the Co-Founder and Research & Business Analyst Specialist at Madhav Consultancy. Bringing rigorous analytical discipline to the leadership team, Surendra heads market research, feasibility studies, and detailed project report preparation for expanding enterprises.",
+      "Within Madhav Consultancy's growth and scalability branch, Surendra supports MSMEs, startups, and commercial clients in preparing Detailed Project Reports (DPR), Credit Monitoring Arrangement (CMA) data, and financial projections required for bank credit facilities and institutional evaluations. His methodical approach ensures client project documentation aligns with banking norms.",
+      "In addition to corporate advisory, Surendra trains learners in market intelligence, business model evaluation, and feasibility assessment. He empowers students to look beyond compliance forms and understand the underlying unit economics and strategic planning essential for sustainable business operations.",
+    ],
+    // TODO: Founder can expand on personalized journey, educational background, certifications, and milestones
   },
 ];
 

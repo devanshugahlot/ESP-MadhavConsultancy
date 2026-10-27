@@ -324,37 +324,37 @@ export default function Services() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.themadhavconsultancy.com/services#breadcrumb",
+        "@id": "https://themadhavconsultancy.com/services#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.themadhavconsultancy.com/"
+            "item": "https://themadhavconsultancy.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Services",
-            "item": "https://www.themadhavconsultancy.com/services"
+            "item": "https://themadhavconsultancy.com/services"
           }
         ]
       },
       {
         "@type": "WebPage",
-        "@id": "https://www.themadhavconsultancy.com/services#webpage",
-        "url": "https://www.themadhavconsultancy.com/services",
+        "@id": "https://themadhavconsultancy.com/services#webpage",
+        "url": "https://themadhavconsultancy.com/services",
         "name": "Services | Madhav Consultancy",
         "description": "Company Registration, GST Registration, GST Filing, ITR Filing, MSME, FSSAI, Project Reports, and Trademark services under Madhav Consultancy Business & Growth branches.",
         "isPartOf": {
           "@type": "WebSite",
-          "@id": "https://www.themadhavconsultancy.com/#website",
+          "@id": "https://themadhavconsultancy.com/#website",
           "name": "Madhav Consultancy",
-          "url": "https://www.themadhavconsultancy.com/"
+          "url": "https://themadhavconsultancy.com/"
         },
         "publisher": {
           "@type": "Organization",
-          "@id": "https://www.themadhavconsultancy.com/#organization"
+          "@id": "https://themadhavconsultancy.com/#organization"
         }
       },
       ...services.map((service) => {
