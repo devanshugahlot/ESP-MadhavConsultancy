@@ -25,18 +25,45 @@ function ScrollRestoration() {
 
   useEffect(() => {
     if (location.hash) {
-      const id = window.setTimeout(() => {
-        const element = document.querySelector(location.hash);
+      let attempts = 0;
+      const maxAttempts = 20; // Retry every 100ms up to ~2 seconds
+      const getTargetElement = () => {
+        if (location.hash === '#skills') {
+          return (
+            document.getElementById('master-portal-filings') ||
+            document.getElementById('skills')
+          );
+        }
+        if (location.hash === '#tree-branches' || location.hash === '#select-branch') {
+          return (
+            document.getElementById('tree-branches') ||
+            document.getElementById('select-branch')
+          );
+        }
+        try {
+          return document.querySelector(location.hash);
+        } catch {
+          return document.getElementById(location.hash.slice(1));
+        }
+      };
+
+      const intervalId = window.setInterval(() => {
+        attempts += 1;
+        const element = getTargetElement();
         if (element) {
+          window.clearInterval(intervalId);
           if (window.lenis) {
             // Smoothly scroll using Lenis, accounting for fixed navbar height of 96px
             window.lenis.scrollTo(element, { offset: -96 });
           } else {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+        } else if (attempts >= maxAttempts) {
+          window.clearInterval(intervalId);
         }
-      }, 120);
-      return () => window.clearTimeout(id);
+      }, 100);
+
+      return () => window.clearInterval(intervalId);
     }
 
     if (window.lenis) {

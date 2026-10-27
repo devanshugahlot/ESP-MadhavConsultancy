@@ -69,9 +69,9 @@ export default function TreeSection() {
         </motion.div>
 
         {/* 4 Branches Cards Shifted BELOW the Tree */}
-        <div className="mt-12 sm:mt-16">
+        <div id="tree-branches" className="mt-12 sm:mt-16 scroll-mt-28">
           <div className="text-center mb-6">
-            <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+            <span id="select-branch" className="text-xs font-black uppercase tracking-wider text-slate-400">
               Select A Branch To Explore Services
             </span>
           </div>

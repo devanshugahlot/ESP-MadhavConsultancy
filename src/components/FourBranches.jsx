@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Briefcase,
   TrendingUp,
@@ -14,20 +14,20 @@ import {
   Sparkles,
   Phone,
   X,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   brand,
   espWhatsAppMessage,
   services,
   treeBranches,
   whatsappLink,
-} from '../assets/siteData';
+} from "../assets/siteData";
 
 function ServiceDetailModal({ service, onClose }) {
   useEffect(() => {
     if (!service) return undefined;
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     if (window.lenis) window.lenis.stop();
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -93,9 +93,9 @@ function ServiceDetailModal({ service, onClose }) {
                 </p>
                 <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
                   {service.process.map((step, idx) => {
-                    const isObj = typeof step === 'object' && step !== null;
+                    const isObj = typeof step === "object" && step !== null;
                     const stepNum = isObj && step.step ? step.step : idx + 1;
-                    const title = isObj ? step.title : '';
+                    const title = isObj ? step.title : "";
                     const desc = isObj ? step.desc : String(step);
                     return (
                       <li key={idx} className="flex items-start gap-2.5">
@@ -103,7 +103,11 @@ function ServiceDetailModal({ service, onClose }) {
                           {stepNum}
                         </span>
                         <div>
-                          {title && <span className="font-bold text-navy mr-1.5">{title}:</span>}
+                          {title && (
+                            <span className="font-bold text-navy mr-1.5">
+                              {title}:
+                            </span>
+                          )}
                           <span>{desc}</span>
                         </div>
                       </li>
@@ -113,33 +117,37 @@ function ServiceDetailModal({ service, onClose }) {
               </div>
             )}
 
-            {Array.isArray(service.documents) && service.documents.length > 0 && (
-              <div>
-                <p className="text-xs font-black uppercase tracking-wider text-navy mb-3 flex items-center gap-1.5">
-                  <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                  <span>Documents Required</span>
-                </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
-                  {service.documents.map((doc, idx) => {
-                    const docText =
-                      typeof doc === 'object' && doc !== null
-                        ? doc.title || doc.name || JSON.stringify(doc)
-                        : String(doc);
-                    return (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                        <span>{docText}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )}
+            {Array.isArray(service.documents) &&
+              service.documents.length > 0 && (
+                <div>
+                  <p className="text-xs font-black uppercase tracking-wider text-navy mb-3 flex items-center gap-1.5">
+                    <ShieldCheck className="h-4 w-4 text-emerald-600" />
+                    <span>Documents Required</span>
+                  </p>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
+                    {service.documents.map((doc, idx) => {
+                      const docText =
+                        typeof doc === "object" && doc !== null
+                          ? doc.title || doc.name || JSON.stringify(doc)
+                          : String(doc);
+                      return (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                          <span>{docText}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
           </div>
 
           <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
             <a
-              href={whatsappLink(service.leadMessage || `Hi Madhav Consultancy, I need details about ${service.title}.`)}
+              href={whatsappLink(
+                service.leadMessage ||
+                  `Hi Madhav Consultancy, I need details about ${service.title}.`,
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-3 shadow-orangeGlow transition"
@@ -168,47 +176,47 @@ export default function FourBranches({ onEnquiryOpen }) {
   return (
     <div className="relative space-y-16 sm:space-y-24 py-12">
       {treeBranches.map((branch, index) => {
-        const isOrange = branch.colorName === 'orange';
-        const isGreen = branch.colorName === 'green';
-        const isBlue = branch.colorName === 'blue';
-        const isPurple = branch.colorName === 'purple';
+        const isOrange = branch.colorName === "orange";
+        const isGreen = branch.colorName === "green";
+        const isBlue = branch.colorName === "blue";
+        const isPurple = branch.colorName === "purple";
 
         const colorClasses = {
           headerBg: isOrange
-            ? 'bg-gradient-to-r from-orange-50 via-white to-orange-50/30 border-orange-200'
+            ? "bg-gradient-to-r from-orange-50 via-white to-orange-50/30 border-orange-200"
             : isGreen
-            ? 'bg-gradient-to-r from-emerald-50 via-white to-emerald-50/30 border-emerald-200'
-            : isBlue
-            ? 'bg-gradient-to-r from-sky-50 via-white to-sky-50/30 border-sky-200'
-            : 'bg-gradient-to-r from-purple-50 via-white to-purple-50/30 border-purple-200',
+              ? "bg-gradient-to-r from-emerald-50 via-white to-emerald-50/30 border-emerald-200"
+              : isBlue
+                ? "bg-gradient-to-r from-sky-50 via-white to-sky-50/30 border-sky-200"
+                : "bg-gradient-to-r from-purple-50 via-white to-purple-50/30 border-purple-200",
           accentText: isOrange
-            ? 'text-orange'
+            ? "text-orange"
             : isGreen
-            ? 'text-emerald-600'
-            : isBlue
-            ? 'text-sky-600'
-            : 'text-purple-600',
+              ? "text-emerald-600"
+              : isBlue
+                ? "text-sky-600"
+                : "text-purple-600",
           badgeBg: isOrange
-            ? 'bg-orange text-white shadow-orangeGlow'
+            ? "bg-orange text-white shadow-orangeGlow"
             : isGreen
-            ? 'bg-emerald-600 text-white shadow-md'
-            : isBlue
-            ? 'bg-sky-600 text-white shadow-md'
-            : 'bg-purple-600 text-white shadow-md',
+              ? "bg-emerald-600 text-white shadow-md"
+              : isBlue
+                ? "bg-sky-600 text-white shadow-md"
+                : "bg-purple-600 text-white shadow-md",
           cardBorder: isOrange
-            ? 'hover:border-orange/60 hover:shadow-[0_16px_40px_rgba(255,122,0,0.12)]'
+            ? "hover:border-orange/60 hover:shadow-[0_16px_40px_rgba(255,122,0,0.12)]"
             : isGreen
-            ? 'hover:border-emerald-500/60 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)]'
-            : isBlue
-            ? 'hover:border-sky-500/60 hover:shadow-[0_16px_40px_rgba(2,132,199,0.12)]'
-            : 'hover:border-purple-500/60 hover:shadow-[0_16px_40px_rgba(147,51,234,0.12)]',
+              ? "hover:border-emerald-500/60 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)]"
+              : isBlue
+                ? "hover:border-sky-500/60 hover:shadow-[0_16px_40px_rgba(2,132,199,0.12)]"
+                : "hover:border-purple-500/60 hover:shadow-[0_16px_40px_rgba(147,51,234,0.12)]",
           dotBg: isOrange
-            ? 'bg-orange'
+            ? "bg-orange"
             : isGreen
-            ? 'bg-emerald-500'
-            : isBlue
-            ? 'bg-sky-500'
-            : 'bg-purple-500',
+              ? "bg-emerald-500"
+              : isBlue
+                ? "bg-sky-500"
+                : "bg-purple-500",
         };
 
         const iconMap = {
@@ -242,7 +250,9 @@ export default function FourBranches({ onEnquiryOpen }) {
                         Branch #{index + 1}
                       </span>
                       <span className="text-slate-300">•</span>
-                      <span className={`text-xs font-extrabold uppercase ${colorClasses.accentText}`}>
+                      <span
+                        className={`text-xs font-extrabold uppercase ${colorClasses.accentText}`}
+                      >
                         {branch.name} Vertical
                       </span>
                     </div>
@@ -256,21 +266,27 @@ export default function FourBranches({ onEnquiryOpen }) {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  {branch.name === 'Skills' ? (
+                  {branch.name === "Skills" ? (
                     <a
                       href="#skills"
                       onClick={(e) => {
                         e.preventDefault();
                         const el =
-                          document.getElementById('master-portal-filings') ||
-                          document.getElementById('skills');
+                          document.getElementById("master-portal-filings") ||
+                          document.getElementById("skills");
                         if (el) {
-                          if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+                          if (
+                            window.lenis &&
+                            typeof window.lenis.scrollTo === "function"
+                          ) {
                             window.lenis.scrollTo(el, { offset: -96 });
                           } else {
-                            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            el.scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                            });
                           }
-                          window.history.pushState(null, '', '#skills');
+                          window.history.pushState(null, "", "#skills");
                         }
                       }}
                       className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white px-5 py-2.5 text-xs sm:text-sm font-black shadow-orangeGlow uppercase tracking-wider transition"
@@ -278,7 +294,7 @@ export default function FourBranches({ onEnquiryOpen }) {
                       <Sparkles className="h-4 w-4" />
                       <span>View Full ESP Details</span>
                     </a>
-                  ) : branch.name === 'Career' ? (
+                  ) : branch.name === "Career" ? (
                     <Link
                       to="/contact"
                       className="inline-flex items-center gap-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white px-5 py-2.5 text-xs sm:text-sm font-black shadow-md uppercase tracking-wider transition"
@@ -316,36 +332,49 @@ export default function FourBranches({ onEnquiryOpen }) {
               {branch.items.map((item, itemIdx) => {
                 const itemWhatsappMsg = `Hi Madhav Consultancy, I am enquiring about ${item.name} under your ${branch.name} branch. Please share details.`;
                 const isEspCard =
-                  branch.name === 'Skills' &&
-                  (item.name.includes('Earning Skill Program') || item.slug === 'esp-program');
+                  branch.name === "Skills" &&
+                  (item.name.includes("Earning Skill Program") ||
+                    item.slug === "esp-program");
 
                 const targetLink = isEspCard
-                  ? '/#skills'
-                  : branch.name === 'Skills' || branch.name === 'Career'
-                  ? '/contact'
-                  : item.to || `/services#${item.slug}`;
+                  ? "/#skills"
+                  : branch.name === "Skills" || branch.name === "Career"
+                    ? "/contact"
+                    : item.to || `/services#${item.slug}`;
 
                 const handleDetailsClick = (e) => {
                   if (isEspCard) {
                     e.preventDefault();
                     const el =
-                      document.getElementById('master-portal-filings') ||
-                      document.getElementById('skills');
+                      document.getElementById("master-portal-filings") ||
+                      document.getElementById("skills");
                     if (el) {
-                      if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+                      if (
+                        window.lenis &&
+                        typeof window.lenis.scrollTo === "function"
+                      ) {
                         window.lenis.scrollTo(el, { offset: -96 });
                       } else {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        el.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
                       }
-                      window.history.pushState(null, '', '#skills');
+                      window.history.pushState(null, "", "#skills");
                     }
                     return;
                   }
-                  if (branch.name === 'Skills' || branch.name === 'Career' || targetLink === '/contact') {
+                  if (
+                    branch.name === "Skills" ||
+                    branch.name === "Career" ||
+                    targetLink === "/contact"
+                  ) {
                     // Smoothly navigates to /contact
                     return;
                   }
-                  const matchedService = services.find((s) => s.slug === item.slug);
+                  const matchedService = services.find(
+                    (s) => s.slug === item.slug,
+                  );
                   if (matchedService) {
                     e.preventDefault();
                     setSelectedService(matchedService);

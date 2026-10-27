@@ -187,8 +187,8 @@ export default function Footer({ onEnquiryOpen }) {
               </div>
               <div className="pt-2 border-t border-white/10 grid gap-1.5 text-xs text-slate-400">
                 <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
-                <Link to="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</Link>
-                <Link to="/disclaimer" className="hover:text-white transition">Disclaimer</Link>
+                {/* <Link to="/terms-and-conditions" className="hover:text-white transition">Terms & Conditions</Link> */}
+                {/* <Link to="/disclaimer" className="hover:text-white transition">Disclaimer</Link> */}
               </div>
             </div>
           </div>
