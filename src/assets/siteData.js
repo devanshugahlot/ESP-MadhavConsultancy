@@ -234,7 +234,7 @@ export const treeBranches = [
     ],
   },
   {
-    id: "skills",
+    id: "skills-branch",
     name: "Skills",
     title: "Skills & ESP Program",
     colorName: "blue",

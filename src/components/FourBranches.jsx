@@ -244,10 +244,16 @@ export default function FourBranches({ onEnquiryOpen }) {
                       href="#skills"
                       onClick={(e) => {
                         e.preventDefault();
-                        const el = document.getElementById('skills');
+                        const el =
+                          document.getElementById('master-portal-filings') ||
+                          document.getElementById('skills');
                         if (el) {
-                          if (window.lenis) window.lenis.scrollTo(el, { offset: -96 });
-                          else el.scrollIntoView({ behavior: 'smooth' });
+                          if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+                            window.lenis.scrollTo(el, { offset: -96 });
+                          } else {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                          window.history.pushState(null, '', '#skills');
                         }
                       }}
                       className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white px-5 py-2.5 text-xs sm:text-sm font-black shadow-orangeGlow uppercase tracking-wider transition"
@@ -292,38 +298,34 @@ export default function FourBranches({ onEnquiryOpen }) {
             <div className="mt-6 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {branch.items.map((item, itemIdx) => {
                 const itemWhatsappMsg = `Hi Madhav Consultancy, I am enquiring about ${item.name} under your ${branch.name} branch. Please share details.`;
-                const targetLink =
-                  item.to ||
-                  (branch.name === 'Skills'
-                    ? (item.name.includes('Earning Skill Program') ? '/#skills' : '/contact')
-                    : branch.name === 'Career'
-                    ? '/contact'
-                    : `/services#${item.slug}`);
+                const isEspCard =
+                  branch.name === 'Skills' &&
+                  (item.name.includes('Earning Skill Program') || item.slug === 'esp-program');
+
+                const targetLink = isEspCard
+                  ? '/#skills'
+                  : branch.name === 'Skills' || branch.name === 'Career'
+                  ? '/contact'
+                  : item.to || `/services#${item.slug}`;
 
                 const handleDetailsClick = (e) => {
-                  if (branch.name === 'Skills') {
-                    if (item.name.includes('Earning Skill Program') || item.slug === 'esp-program') {
-                      e.preventDefault();
-                      const el = document.getElementById('skills');
-                      if (el) {
-                        if (window.lenis) window.lenis.scrollTo(el, { offset: -96 });
-                        else el.scrollIntoView({ behavior: 'smooth' });
-                      }
-                      return;
-                    }
-                    // For other Skills items (Practical Training, Digital & Business Skills, Work Readiness) redirect to /contact
-                    return;
-                  }
-                  if (targetLink.startsWith('/#skills')) {
+                  if (isEspCard) {
                     e.preventDefault();
-                    const el = document.getElementById('skills');
+                    const el =
+                      document.getElementById('master-portal-filings') ||
+                      document.getElementById('skills');
                     if (el) {
-                      if (window.lenis) window.lenis.scrollTo(el, { offset: -96 });
-                      else el.scrollIntoView({ behavior: 'smooth' });
+                      if (window.lenis && typeof window.lenis.scrollTo === 'function') {
+                        window.lenis.scrollTo(el, { offset: -96 });
+                      } else {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                      window.history.pushState(null, '', '#skills');
                     }
                     return;
                   }
-                  if (branch.name === 'Career' || targetLink === '/contact') {
+                  if (branch.name === 'Skills' || branch.name === 'Career' || targetLink === '/contact') {
+                    // Smoothly navigates to /contact
                     return;
                   }
                   const matchedService = services.find((s) => s.slug === item.slug);
