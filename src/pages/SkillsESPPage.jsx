@@ -231,7 +231,8 @@ export default function SkillsESPPage({ onEnquiryOpen }) {
               {/* Batch Offer & Key Details Card */}
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 rounded-xl bg-orange px-4 py-2 text-sm font-black text-white shadow-md">
-                  Offer Fee: ₹999/- Only
+                  <span className="line-through opacity-75 font-semibold text-xs sm:text-sm mr-1">₹7,999/-</span>
+                  <span>Offer Fee: ₹999/- Only</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-xl bg-white/10 px-4 py-2 text-xs sm:text-sm font-bold text-slate-200 border border-white/10">
                   <Clock className="h-4 w-4 text-orange" />

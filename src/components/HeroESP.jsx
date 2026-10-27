@@ -126,7 +126,10 @@ export default function HeroESP({ onEnquiryOpen }) {
                 </div>
                 <div className="text-right">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Offer Fee</p>
-                  <p className="text-xs sm:text-sm font-black text-orange">₹999/- <span className="line-through text-slate-400 font-medium text-[11px]"></span></p>
+                  <p className="text-xs sm:text-sm font-black text-orange">
+                    <span className="line-through text-slate-400 font-medium text-[11px] mr-1.5">₹7,999/-</span>
+                    ₹999/-
+                  </p>
                 </div>
               </div>
             </div>

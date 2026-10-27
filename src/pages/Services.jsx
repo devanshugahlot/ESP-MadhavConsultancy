@@ -435,7 +435,9 @@ export default function Services() {
               className="inline-flex items-center gap-2 rounded-full border border-orange bg-orange/10 hover:bg-orange hover:text-white text-orange font-black text-sm uppercase tracking-wider px-5 py-3 transition"
             >
               <Sparkles className="h-4 w-4" />
-              <span>Want to Learn These? Join ESP (₹999 Only)</span>
+              <span>
+                Want to Learn These? Join ESP (<span className="line-through text-slate-400 font-medium mr-1">₹7,999</span>₹999 Only)
+              </span>
             </a>
           </div>
         </div>

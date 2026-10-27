@@ -278,8 +278,10 @@ export default function ESPDetailSection() {
                   <Coins className="h-5 w-5 text-orange shrink-0 mt-0.5" />
                   <div>
                     <p className="text-xs font-black uppercase tracking-wider text-slate-400">Fees</p>
-                    <p className="text-sm sm:text-base font-extrabold text-white mt-0.5">
-                      {espProgram.batchPlaceholders.fees}
+                    <p className="text-sm sm:text-base font-extrabold text-white mt-0.5 flex items-center flex-wrap gap-2">
+                      <span className="line-through text-slate-400 font-semibold text-xs sm:text-sm">₹7,999/-</span>
+                      <span className="text-orange">₹999/- Only</span>
+                      <span className="text-xs font-bold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-md border border-emerald-500/30">Special Offer</span>
                     </p>
                   </div>
                 </div>

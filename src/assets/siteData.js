@@ -47,7 +47,7 @@ export const espWhatsAppMessage =
   "Hi Lokesh Sir, I want to join the ESP (Earning Skill Program) batch. Please share admission details and fee structure.";
 
 export const tickerText =
-  "ESP (Earning Skill Program) Live Practical Coaching • Offer Fee: ₹999/";
+  "ESP (Earning Skill Program) Live Practical Coaching • Regular: ₹7,999 | Special Offer Fee: ₹999/- Only";
 
 export const navLinks = [
   { label: "Home", to: "/" },
@@ -82,7 +82,7 @@ export const espProgram = {
     { label: "Seats", value: "Book Your Batch Now!" },
   ],
   batchPlaceholders: {
-    fees: " Special Offer After Discount: ₹999/- Only",
+    fees: "Special Offer: ₹999/- Only (Regular: ₹7,999/-)",
     startDate: "[New Batch Starting This Week – Admissions Open Today]",
     timing: "[Evening & Weekend Batches Available / 1.5 Hrs Daily]",
     mode: "[Live Interactive Online Sessions + Practical Portal Tasks]",
@@ -1455,21 +1455,21 @@ export const team = [
     role: "Company Compliance Specialist",
     image: roshanImg,
     description:
-      "Dedicated strictly to Company & LLP incorporations, MCA statutory filings, ROC compliances, and corporate legal documentation.",
+      "Provides practical training in company and LLP incorporation, MCA filings, ROC compliance, and corporate documentation to build industry-ready compliance skills.",
   },
   {
     name: "Ajay Verma",
     role: "Sales Specialist",
     image: ajayImg,
     description:
-      "Spearheads client consultations, business development, customer enquiry management, and smooth service onboarding.",
+      "Trains learners in client communication, sales techniques, lead management, and business development to build confidence and professional skills.",
   },
   {
     name: "Surendra Nagar",
     role: "Research & Business Analyst Specialist",
     image: surendraImg,
     description:
-      "Specializes in in-depth market research, bankable project reports (DPR/CMA data), enterprise feasibility studies, and growth modeling.",
+      "Trains learners in market research, business analysis, feasibility assessment, and strategic planning to develop analytical thinking and informed decision-making skills.",
   },
 ];
 
