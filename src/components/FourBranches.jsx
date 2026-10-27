@@ -85,36 +85,53 @@ function ServiceDetailModal({ service, onClose }) {
           </p>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 bg-slate-50 p-5 rounded-2xl border border-navy/5">
-            {service.process && (
+            {Array.isArray(service.process) && service.process.length > 0 && (
               <div>
                 <p className="text-xs font-black uppercase tracking-wider text-orange mb-3 flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4" />
                   <span>Execution Process</span>
                 </p>
-                <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
-                  {service.process.map((step, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-orange mt-2 shrink-0" />
-                      <span>{step}</span>
-                    </li>
-                  ))}
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                  {service.process.map((step, idx) => {
+                    const isObj = typeof step === 'object' && step !== null;
+                    const stepNum = isObj && step.step ? step.step : idx + 1;
+                    const title = isObj ? step.title : '';
+                    const desc = isObj ? step.desc : String(step);
+                    return (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className="grid h-4 w-4 place-items-center rounded-full bg-orange text-white text-[10px] font-black shrink-0 mt-0.5">
+                          {stepNum}
+                        </span>
+                        <div>
+                          {title && <span className="font-bold text-navy mr-1.5">{title}:</span>}
+                          <span>{desc}</span>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
 
-            {service.documents && (
+            {Array.isArray(service.documents) && service.documents.length > 0 && (
               <div>
                 <p className="text-xs font-black uppercase tracking-wider text-navy mb-3 flex items-center gap-1.5">
                   <ShieldCheck className="h-4 w-4 text-emerald-600" />
                   <span>Documents Required</span>
                 </p>
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
-                  {service.documents.map((doc, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                      <span>{doc}</span>
-                    </li>
-                  ))}
+                  {service.documents.map((doc, idx) => {
+                    const docText =
+                      typeof doc === 'object' && doc !== null
+                        ? doc.title || doc.name || JSON.stringify(doc)
+                        : String(doc);
+                    return (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                        <span>{docText}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
@@ -122,7 +139,7 @@ function ServiceDetailModal({ service, onClose }) {
 
           <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
             <a
-              href={whatsappLink(service.leadMessage)}
+              href={whatsappLink(service.leadMessage || `Hi Madhav Consultancy, I need details about ${service.title}.`)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-3 shadow-orangeGlow transition"
@@ -132,11 +149,11 @@ function ServiceDetailModal({ service, onClose }) {
             </a>
 
             <Link
-              to={`/services#${service.slug}`}
+              to={`/${service.slug}`}
               onClick={onClose}
               className="inline-flex items-center gap-1.5 text-xs font-black text-navy hover:text-orange transition"
             >
-              <span>View in All Services Page</span>
+              <span>View Full Service Page</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
