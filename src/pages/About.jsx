@@ -23,6 +23,7 @@ import {
   defaultWhatsAppMessage,
   espWhatsAppMessage,
   founders,
+  roshanImg,
   team,
   trustBadges,
   whatsappLink,
@@ -156,7 +157,7 @@ export default function About() {
               data-reveal
               className="text-3xl sm:text-5xl font-black text-navy mt-3 font-display"
             >
-              Our Founders
+              Our Founders & Leadership
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
               The visionaries driving Madhav Consultancy's mission to bridge
@@ -164,7 +165,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {founders.map((founder) => (
               <article
                 data-reveal
@@ -228,6 +229,76 @@ export default function About() {
                 </div>
               </article>
             ))}
+
+            {/* Roshan Sharma Card */}
+            <article
+              data-reveal
+              key="roshan-sharma"
+              className="rounded-3xl border border-navy/10 bg-[#FAFBFD] p-6 sm:p-7 shadow-soft hover:shadow-cardHover hover:border-orange/30 transition-all duration-300 flex flex-col justify-between group"
+            >
+              <div>
+                <a
+                  href={whatsappLink(
+                    "Hi Roshan Sharma Sir (Madhav Consultancy), I would like to consult with you regarding Company Compliance and practical training.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative mb-5 overflow-hidden rounded-2xl aspect-[4/4.5] bg-slate-100 border border-navy/10 shadow-xs"
+                >
+                  <img
+                    src={roshanImg}
+                    alt="Roshan Sharma - Company Compliance Specialist"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                      <span>Company Compliance</span>
+                      <ArrowRight className="h-3.5 w-3.5 text-orange" />
+                    </span>
+                  </div>
+                </a>
+
+                <div className="mb-2">
+                  <span className="inline-block rounded-full bg-orange/10 border border-orange/20 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-orange">
+                    Company Compliance Specialist
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-navy font-display tracking-tight group-hover:text-orange transition-colors">
+                  Roshan Sharma
+                </h3>
+
+                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-600 font-medium">
+                  Provides practical training in company and LLP incorporation, MCA filings, ROC compliance, and corporate documentation to build industry-ready compliance skills.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                <a
+                  href={whatsappLink(
+                    "Hi Roshan Sharma Sir (Madhav Consultancy), I would like to consult with you regarding your role as Company Compliance Specialist.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-extrabold text-navy hover:text-orange transition group/btn"
+                >
+                  <span>Connect on WhatsApp</span>
+                  <ArrowRight className="h-3.5 w-3.5 text-orange group-hover/btn:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href={whatsappLink(
+                    "Hi Roshan Sharma Sir (Madhav Consultancy), I would like to consult with you regarding your role as Company Compliance Specialist.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="grid h-8 w-8 place-items-center rounded-full bg-slate-100 hover:bg-orange hover:text-white text-navy transition"
+                  title="Connect with Roshan Sharma on WhatsApp"
+                >
+                  <MessageCircle className="h-4 w-4 text-emerald-500 group-hover:text-white" />
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </AnimatedSection>
