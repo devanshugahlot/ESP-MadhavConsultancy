@@ -4,17 +4,6 @@
       "source": "/skills",
       "destination": "/skills-esp",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.themadhavconsultancy.com"
-        }
-      ],
-      "destination": "https://themadhavconsultancy.com/:path*",
-      "permanent": true
     }
   ],
   "rewrites": [

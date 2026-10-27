@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://themadhavconsultancy.com/sitemap.xml
+Sitemap: https://www.themadhavconsultancy.com/sitemap.xml

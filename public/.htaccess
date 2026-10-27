@@ -6,11 +6,7 @@
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # 2. Redirect www to non-www (Canonical 301)
-  RewriteCond %{HTTP_HOST} ^www\.themadhavconsultancy\.com$ [NC]
-  RewriteRule ^(.*)$ https://themadhavconsultancy.com/$1 [L,R=301]
-
-  # 3. Legacy & Alias 301 Redirects
+  # 2. Legacy & Alias 301 Redirects
   RewriteRule ^skills/?$ /skills-esp [L,R=301]
 
   # 4. Standard Static File / Directory Passthrough

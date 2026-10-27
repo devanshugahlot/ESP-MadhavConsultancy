@@ -21,7 +21,7 @@ export const brand = {
   whatsappNumber: "917976604850",
   email: "Madhavconsultancy2026@gmail.com",
   websiteDisplay: "TheMadhavConsultancy.com",
-  websiteUrl: "https://themadhavconsultancy.com",
+  websiteUrl: "https://www.themadhavconsultancy.com",
   googleFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSfIHsqSJw27tMjWN7dBq7teyCayHZud5NkyO8ZwZlb8KwQ_OA/viewform?usp=header",
   address: "Madhav Consultancy, Jaipur, Rajasthan (India)",

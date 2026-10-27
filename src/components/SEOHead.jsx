@@ -6,11 +6,11 @@ export default function SEOHead({
   title,
   description,
   canonical,
-  ogImage = 'https://themadhavconsultancy.com/logo.jpg',
+  ogImage = 'https://www.themadhavconsultancy.com/logo.jpg',
   ogType = 'website',
   schema,
 }) {
-  const siteUrl = brand.websiteUrl || 'https://themadhavconsultancy.com';
+  const siteUrl = brand.websiteUrl || 'https://www.themadhavconsultancy.com';
   const cleanCanonical = canonical
     ? (canonical.startsWith('http') ? canonical : `${siteUrl}${canonical}`)
     : siteUrl;

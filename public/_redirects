@@ -1,10 +1,6 @@
-# Canonical Host Redirect: www to non-www
-https://www.themadhavconsultancy.com/*  https://themadhavconsultancy.com/:splat  301!
-http://www.themadhavconsultancy.com/*   https://themadhavconsultancy.com/:splat  301!
-http://themadhavconsultancy.com/*       https://themadhavconsultancy.com/:splat  301!
-
 # Legacy & Alias Route Redirects
 /skills                                 /skills-esp                               301
 
 # SPA Fallback for Client-Side Routing
 /*                                      /index.html                               200
+
