@@ -22,6 +22,7 @@ import {
   BookOpenCheck,
   Users,
   TrendingUp,
+  ArrowRight,
 } from 'lucide-react';
 import Button from './Button';
 import {
@@ -319,6 +320,20 @@ export default function ESPDetailSection() {
                 <p>
                   <strong className="text-white">Note:</strong> {espProgram.effortNote}
                 </p>
+              </div>
+
+              {/* Direct Google Form Booking CTA */}
+              <div className="pt-2">
+                <a
+                  href={brand.googleFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-orange hover:bg-orange/90 text-white font-black text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 shadow-orangeGlow transition-all duration-200 hover:scale-105"
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>Book Seat via Google Form</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
 

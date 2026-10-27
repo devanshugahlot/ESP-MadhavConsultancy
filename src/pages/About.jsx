@@ -90,11 +90,11 @@ export default function About() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-navy/10 bg-white p-3 shadow-soft">
+          <div className="relative flex items-center justify-center">
             <img
               src={treeImage}
               alt="Madhav Consultancy Growth and Branches"
-              className="w-full h-auto rounded-[2rem] object-cover"
+              className="w-full h-auto max-h-[500px] object-contain drop-shadow-md"
               loading="eager"
             />
           </div>

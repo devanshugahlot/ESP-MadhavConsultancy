@@ -295,13 +295,26 @@ export default function FourBranches({ onEnquiryOpen }) {
                 const targetLink =
                   item.to ||
                   (branch.name === 'Skills'
-                    ? '/#skills'
+                    ? (item.name.includes('Earning Skill Program') ? '/#skills' : '/contact')
                     : branch.name === 'Career'
                     ? '/contact'
                     : `/services#${item.slug}`);
 
                 const handleDetailsClick = (e) => {
-                  if (branch.name === 'Skills' || targetLink.startsWith('/#skills')) {
+                  if (branch.name === 'Skills') {
+                    if (item.name.includes('Earning Skill Program') || item.slug === 'esp-program') {
+                      e.preventDefault();
+                      const el = document.getElementById('skills');
+                      if (el) {
+                        if (window.lenis) window.lenis.scrollTo(el, { offset: -96 });
+                        else el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                      return;
+                    }
+                    // For other Skills items (Practical Training, Digital & Business Skills, Work Readiness) redirect to /contact
+                    return;
+                  }
+                  if (targetLink.startsWith('/#skills')) {
                     e.preventDefault();
                     const el = document.getElementById('skills');
                     if (el) {
@@ -310,7 +323,7 @@ export default function FourBranches({ onEnquiryOpen }) {
                     }
                     return;
                   }
-                  if (branch.name === 'Career') {
+                  if (branch.name === 'Career' || targetLink === '/contact') {
                     return;
                   }
                   const matchedService = services.find((s) => s.slug === item.slug);

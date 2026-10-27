@@ -126,7 +126,7 @@ export default function HeroESP({ onEnquiryOpen }) {
                 </div>
                 <div className="text-right">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Offer Fee</p>
-                  <p className="text-xs sm:text-sm font-black text-orange">₹999/- <span className="line-through text-slate-400 font-medium text-[11px]">₹7,999</span></p>
+                  <p className="text-xs sm:text-sm font-black text-orange">₹999/- <span className="line-through text-slate-400 font-medium text-[11px]"></span></p>
                 </div>
               </div>
             </div>
@@ -144,14 +144,24 @@ export default function HeroESP({ onEnquiryOpen }) {
                 <span>Join ESP on WhatsApp</span>
               </a>
 
+              {/* Secondary "Book Seat (Google Form)" CTA */}
+              <a
+                href={brand.googleFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-orange/40 bg-orange/15 hover:bg-orange hover:text-white text-orange font-black text-sm sm:text-base px-6 py-3.5 backdrop-blur transition-all duration-200"
+              >
+                <span>Book Seat (Google Form)</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+
               {/* Secondary "Enquire Now" CTA */}
               <button
                 type="button"
                 onClick={onEnquiryOpen}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white font-extrabold text-base px-6 py-3.5 backdrop-blur transition-all duration-200"
               >
-                <span>Enquire Now</span>
-                <ArrowRight className="h-4 w-4" />
+                <span>Quick Enquiry</span>
               </button>
 
               {/* Direct Call Link */}

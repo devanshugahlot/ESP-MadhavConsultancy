@@ -19,14 +19,16 @@ export const brand = {
   email: "Madhavconsultancy2026@gmail.com",
   websiteDisplay: "TheMadhavConsultancy.com",
   websiteUrl: "https://www.themadhavconsultancy.com",
-  googleFormUrl: "https://forms.gle/madhavconsultancy-esp",
+  googleFormUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSfIHsqSJw27tMjWN7dBq7teyCayHZud5NkyO8ZwZlb8KwQ_OA/viewform?usp=header",
   address: "Madhav Consultancy, Jaipur, Rajasthan (India)",
   city: "Jaipur, Rajasthan",
   hours: "Mon - Sat, 10:00 AM - 7:00 PM",
   mapEmbed:
     "https://www.google.com/maps?q=Jaipur%2C%20Rajasthan%2C%20India&output=embed",
   facebook: "https://www.facebook.com/share/1CzJprMxyy/",
-  instagram: "https://www.instagram.com/themadhavconsultancy/",
+  instagram:
+    "https://www.instagram.com/madhavconsultancy_?utm_source=qr&exln=MXNjZWY4enZjZjMzeg==",
   secondaryLines: {
     opportunities: "More Than Just Services... We Build Opportunities.",
     tree: "One Tree, Multiple Solutions for Your Business, Career, Skills & Future.",
@@ -45,7 +47,7 @@ export const espWhatsAppMessage =
   "Hi Lokesh Sir, I want to join the ESP (Earning Skill Program) batch. Please share admission details and fee structure.";
 
 export const tickerText =
-  "ESP (Earning Skill Program) Live Practical Coaching • Offer Fee: ₹999/- (Fee Before Discount: ₹7,999/-)";
+  "ESP (Earning Skill Program) Live Practical Coaching • Offer Fee: ₹999/";
 
 export const navLinks = [
   { label: "Home", to: "/" },
@@ -80,7 +82,7 @@ export const espProgram = {
     { label: "Seats", value: "Book Your Batch Now!" },
   ],
   batchPlaceholders: {
-    fees: "Before Discount: ₹7,999/- | Special Offer After Discount: ₹999/- Only",
+    fees: " Special Offer After Discount: ₹999/- Only",
     startDate: "[New Batch Starting This Week – Admissions Open Today]",
     timing: "[Evening & Weekend Batches Available / 1.5 Hrs Daily]",
     mode: "[Live Interactive Online Sessions + Practical Portal Tasks]",
@@ -247,9 +249,9 @@ export const treeBranches = [
       "Become a certified compliance practitioner. Learn 5 essential government portal services (GST, MSME, FSSAI, ITR, GST Filing) and start taking paying clients in 4 weeks.",
     items: [
       { name: "Earning Skill Program (ESP)", detail: "4-week signature live cohort with step-by-step portal mastery.", slug: "esp-program", to: "/#skills" },
-      { name: "Practical Training", detail: "Live portal screen sharing, sample client documents, and query solving.", slug: "esp-program", to: "/#skills" },
-      { name: "Digital & Business Skills", detail: "WhatsApp business marketing, professional proposal writing & pricing strategy.", slug: "esp-program", to: "/#skills" },
-      { name: "Work Readiness", detail: "Industry-standard working knowledge that gives immediate career and freelancing value.", slug: "esp-program", to: "/#skills" },
+      { name: "Practical Training", detail: "Live portal screen sharing, sample client documents, and query solving.", slug: "practical-training", to: "/contact" },
+      { name: "Digital & Business Skills", detail: "WhatsApp business marketing, professional proposal writing & pricing strategy.", slug: "digital-skills", to: "/contact" },
+      { name: "Work Readiness", detail: "Industry-standard working knowledge that gives immediate career and freelancing value.", slug: "work-readiness", to: "/contact" },
     ],
   },
   {

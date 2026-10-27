@@ -39,7 +39,10 @@ export function EnquiryForm({ compact = false, onSubmitted }) {
   }
 
   return (
-    <form className={`grid gap-4 ${compact ? '' : 'rounded-3xl border border-navy/10 bg-white p-6 shadow-soft'}`} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={`grid gap-4 ${compact ? '' : 'rounded-2xl sm:rounded-3xl border border-navy/10 bg-white p-4 sm:p-7 shadow-soft'}`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="grid gap-1.5">
         <label className="form-label" htmlFor={compact ? 'compact-name' : 'name'}>
           Full Name *

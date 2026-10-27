@@ -1,11 +1,27 @@
 import React from 'react';
-import { Clock3, Mail, MapPin, MessageCircle, Phone, Sparkles, UserCheck } from 'lucide-react';
+import {
+  Clock3,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  Instagram,
+  ArrowRight,
+  ExternalLink,
+} from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import { EnquiryForm } from '../components/EnquiryModal';
 import PageTransition from '../components/PageTransition';
 import usePageMeta from '../components/usePageMeta';
-import { brand, defaultWhatsAppMessage, espWhatsAppMessage, whatsappLink } from '../assets/siteData';
+import {
+  brand,
+  defaultWhatsAppMessage,
+  espWhatsAppMessage,
+  lokeshImg,
+  whatsappLink,
+} from '../assets/siteData';
 
 export default function Contact() {
   const contactSchema = {
@@ -89,19 +105,19 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <section className="inner-hero pt-36 pb-16 bg-gradient-to-b from-navy/5 via-white to-soft">
+      <section className="inner-hero pt-28 sm:pt-36 pb-12 sm:pb-16 bg-gradient-to-b from-navy/5 via-white to-soft">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/20 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-3">
             <Sparkles className="h-3.5 w-3.5" />
             <span>Direct WhatsApp-First Support</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-navy font-display max-w-4xl">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight text-navy font-display max-w-4xl">
             Let's Talk About Your <span className="text-orange">Skills & Business.</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">
+          <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-slate-600">
             Whether inquiring about the upcoming <strong>ESP (Earning Skill Program)</strong> batch or needing corporate registration & tax filing support, Trainer & Mentor Lokesh Verma is here to guide you.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row flex-wrap gap-3">
             <Button href={whatsappLink(defaultWhatsAppMessage)} icon={MessageCircle}>
               WhatsApp Now (7976604850)
             </Button>
@@ -112,38 +128,40 @@ export default function Contact() {
         </div>
       </section>
 
-      <AnimatedSection className="bg-soft py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+      <AnimatedSection className="bg-soft py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid gap-8 lg:grid-cols-12 items-start">
           {/* Left: Contact Form */}
-          <div data-reveal>
+          <div data-reveal className="lg:col-span-7">
             <div className="mb-4">
-              <h2 className="text-2xl font-black text-navy font-display">
+              <h2 className="text-2xl sm:text-3xl font-black text-navy font-display">
                 Send an Enquiry
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Your enquiry will open directly in WhatsApp for immediate response.
+                Your enquiry will open directly in WhatsApp for immediate response from Lokesh Verma.
               </p>
             </div>
             <EnquiryForm />
           </div>
 
           {/* Right: Contact Cards */}
-          <div data-reveal className="grid gap-4">
+          <div data-reveal className="lg:col-span-5 grid gap-4">
             {/* Consultant Profile Card */}
-            <div className="rounded-3xl border border-orange/30 bg-gradient-to-r from-orange-50 to-white p-5 shadow-sm">
-              <div className="flex items-center gap-4">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-orange text-white font-black text-lg shadow-orangeGlow">
-                  LV
-                </div>
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-orange">
-                    Trainer & Mentor
+            <div className="rounded-2xl sm:rounded-3xl border border-orange/30 bg-gradient-to-r from-orange-50/80 via-white to-orange-50/30 p-4 sm:p-5 shadow-sm">
+              <div className="flex items-center gap-3.5 sm:gap-4">
+                <img
+                  src={lokeshImg}
+                  alt={brand.consultant}
+                  className="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border-2 border-orange shadow-md shrink-0"
+                />
+                <div className="min-w-0">
+                  <span className="inline-block text-[10px] font-black uppercase tracking-widest text-orange bg-orange/10 px-2.5 py-0.5 rounded-full border border-orange/20 mb-1">
+                    {brand.consultantRole}
                   </span>
-                  <h3 className="text-xl font-black text-navy">{brand.consultant}</h3>
-                  <p className="text-xs font-semibold text-slate-600">{brand.consultantRole}</p>
+                  <h3 className="text-lg sm:text-xl font-black text-navy truncate">{brand.consultant}</h3>
+                  <p className="text-xs font-semibold text-slate-600 truncate">{brand.tagline}</p>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-slate-600 leading-relaxed">
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                 "One Tree, Multiple Solutions for Your Business, Career, Skills & Future. Let's Build Your Future Together."
               </p>
             </div>
@@ -153,15 +171,24 @@ export default function Contact() {
                 icon: Phone,
                 title: 'Phone & WhatsApp',
                 value: brand.phone,
-                sub: 'Quickest response via WhatsApp',
+                sub: 'Quickest response via WhatsApp (Mon-Sat)',
                 href: brand.callHref,
               },
               {
                 icon: Mail,
                 title: 'Official Email',
                 value: brand.email,
-                sub: 'For proposals, docs & formal queries',
+                sub: 'For documents & formal correspondence',
                 href: `mailto:${brand.email}`,
+                isEmail: true,
+              },
+              {
+                icon: Instagram,
+                title: 'Instagram Profile',
+                value: '@madhavconsultancy_',
+                sub: 'Follow for regular business & tax updates',
+                href: brand.instagram,
+                isExternal: true,
               },
               {
                 icon: MapPin,
@@ -178,20 +205,31 @@ export default function Contact() {
             ].map((item, idx) => {
               const Icon = item.icon;
               const content = (
-                <div className="flex gap-4 rounded-3xl border border-navy/10 bg-white p-5 shadow-soft transition hover:border-orange/50 hover:shadow-cardHover">
-                  <div className="grid h-12 w-12 flex-none place-items-center rounded-2xl bg-navy text-orange shadow-sm">
-                    <Icon className="h-6 w-6" />
+                <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 rounded-2xl sm:rounded-3xl border border-navy/10 bg-white p-4 sm:p-5 shadow-soft transition-all duration-200 hover:border-orange/50 hover:shadow-cardHover">
+                  <div className="grid h-11 w-11 sm:h-12 sm:w-12 flex-none place-items-center rounded-2xl bg-navy text-orange shadow-sm mt-0.5 sm:mt-0">
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <div>
-                    <p className="text-xs font-black uppercase tracking-wider text-slate-400">{item.title}</p>
-                    <p className="text-base sm:text-lg font-black text-navy mt-0.5">{item.value}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-slate-400">{item.title}</p>
+                    <p className={`text-sm sm:text-base lg:text-lg font-black text-navy mt-0.5 ${item.isEmail ? 'break-all sm:break-normal' : 'break-words'}`}>
+                      {item.value}
+                    </p>
                     <p className="text-xs text-slate-500 mt-0.5">{item.sub}</p>
                   </div>
+                  {item.href && (
+                    <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-orange shrink-0 self-center hidden sm:block" />
+                  )}
                 </div>
               );
 
               return item.href ? (
-                <a key={idx} href={item.href} className="block transition hover:-translate-y-0.5">
+                <a
+                  key={idx}
+                  href={item.href}
+                  target={item.isExternal ? '_blank' : undefined}
+                  rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                  className="group block transition hover:-translate-y-0.5"
+                >
                   {content}
                 </a>
               ) : (
@@ -203,13 +241,13 @@ export default function Contact() {
       </AnimatedSection>
 
       {/* Office Map */}
-      <AnimatedSection className="py-16">
+      <AnimatedSection className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div data-reveal className="overflow-hidden rounded-[2.5rem] border border-navy/10 bg-white p-3 shadow-soft">
+          <div data-reveal className="overflow-hidden rounded-2xl sm:rounded-[2.5rem] border border-navy/10 bg-white p-2 sm:p-3 shadow-soft">
             <iframe
               title="Madhav Consultancy Jaipur Office Map"
               src={brand.mapEmbed}
-              className="h-[380px] sm:h-[440px] w-full rounded-[2rem]"
+              className="h-[260px] sm:h-[360px] lg:h-[420px] w-full rounded-xl sm:rounded-[2rem] border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
