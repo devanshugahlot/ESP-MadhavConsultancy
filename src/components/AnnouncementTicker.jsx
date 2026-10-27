@@ -1,6 +1,18 @@
 import React from "react";
 import { Sparkles, ArrowRight, FileCheck2 } from "lucide-react";
-import { brand, tickerText } from "../assets/siteData";
+import { brand } from "../assets/siteData";
+
+function TickerItem() {
+  return (
+    <span className="inline-flex items-center gap-2">
+      <span className="text-orange">★</span>
+      <span>ESP (Earning Skill Program) Live Practical Coaching</span>
+      <span className="text-slate-400">•</span>
+      <span className="line-through text-slate-400 font-semibold">₹7,999</span>
+      <span className="text-orange font-black">₹999/-</span>
+    </span>
+  );
+}
 
 export default function AnnouncementTicker({ onEnquiryOpen }) {
   return (
@@ -18,13 +30,13 @@ export default function AnnouncementTicker({ onEnquiryOpen }) {
         {/* Marquee Track with hover pause */}
         <div className="relative flex-1 overflow-hidden group cursor-pointer mx-2 sm:mx-4">
           <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused] text-slate-100 font-extrabold tracking-wide py-0.5">
-            <span className="inline-flex items-center gap-4">
-              <span className="text-orange">★</span> {tickerText}
-              <span className="text-orange">★</span> {tickerText}
+            <span className="inline-flex items-center gap-6 pr-6">
+              <TickerItem />
+              <TickerItem />
             </span>
-            <span className="inline-flex items-center gap-4 ml-4">
-              <span className="text-orange">★</span> {tickerText}
-              <span className="text-orange">★</span> {tickerText}
+            <span className="inline-flex items-center gap-6 pr-6">
+              <TickerItem />
+              <TickerItem />
             </span>
           </div>
         </div>

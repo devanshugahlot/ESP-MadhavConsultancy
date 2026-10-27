@@ -47,7 +47,7 @@ export const espWhatsAppMessage =
   "Hi Lokesh Sir, I want to join the ESP (Earning Skill Program) batch. Please share admission details and fee structure.";
 
 export const tickerText =
-  "ESP (Earning Skill Program) Live Practical Coaching • Regular: ₹7,999 | Special Offer Fee: ₹999/- Only";
+  "ESP (Earning Skill Program) Live Practical Coaching • ₹7,999 ₹999/-";
 
 export const navLinks = [
   { label: "Home", to: "/" },
