@@ -18,12 +18,13 @@ import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import TestimonialsPlaceholder from "../components/TestimonialsPlaceholder";
 import FAQAccordion from "../components/FAQAccordion";
 import Button from "../components/Button";
-import usePageMeta from "../components/usePageMeta";
+import SEOHead from "../components/SEOHead";
 import {
   brand,
   defaultWhatsAppMessage,
   espWhatsAppMessage,
   faqs,
+  services,
   whatsappLink,
 } from "../assets/siteData";
 
@@ -32,13 +33,27 @@ export default function Home({ onEnquiryOpen }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "EducationalOrganization",
-        "@id": "https://www.themadhavconsultancy.com/#organization",
+        "@type": "WebSite",
+        "@id": "https://themadhavconsultancy.com/#website",
         name: "Madhav Consultancy",
-        url: "https://www.themadhavconsultancy.com/",
+        alternateName: [
+          "The Madhav Consultancy",
+          "themadhavconsultancy.com",
+          "ESP Madhav Consultancy",
+        ],
+        url: "https://themadhavconsultancy.com/",
+        publisher: {
+          "@id": "https://themadhavconsultancy.com/#organization",
+        },
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://themadhavconsultancy.com/#organization",
+        name: "Madhav Consultancy",
+        url: "https://themadhavconsultancy.com/",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.themadhavconsultancy.com/logo.jpg",
+          url: "https://themadhavconsultancy.com/logo.jpg",
           caption: "Madhav Consultancy Logo",
         },
         founder: {
@@ -46,14 +61,10 @@ export default function Home({ onEnquiryOpen }) {
           name: "Lokesh Verma",
           jobTitle: "Trainer & Mentor",
         },
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Madhav Consultancy, Jaipur",
-          addressLocality: "Jaipur",
-          addressRegion: "Rajasthan",
-          postalCode: "302001",
-          addressCountry: "IN",
-        },
+        sameAs: [
+          brand.facebook,
+          brand.instagram,
+        ],
         contactPoint: {
           "@type": "ContactPoint",
           telephone: "+91-79766-04850",
@@ -63,43 +74,52 @@ export default function Home({ onEnquiryOpen }) {
         },
       },
       {
-        "@type": "WebSite",
-        "@id": "https://www.themadhavconsultancy.com/#website",
+        "@type": "ProfessionalService",
+        "@id": "https://themadhavconsultancy.com/#localbusiness",
         name: "Madhav Consultancy",
-        alternateName: [
-          "The Madhav Consultancy",
-          "themadhavconsultancy",
-          "ESP Madhav Consultancy",
+        image: "https://themadhavconsultancy.com/logo.jpg",
+        url: "https://themadhavconsultancy.com/",
+        telephone: "+91-79766-04850",
+        priceRange: "INR",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Madhav Consultancy, Jaipur",
+          addressLocality: "Jaipur",
+          addressRegion: "Rajasthan",
+          postalCode: "302001",
+          addressCountry: "IN",
+        },
+        areaServed: [
+          {
+            "@type": "City",
+            name: "Jaipur",
+          },
+          {
+            "@type": "State",
+            name: "Rajasthan",
+          },
+          {
+            "@type": "Country",
+            name: "India",
+          },
         ],
-        url: "https://www.themadhavconsultancy.com/",
-        publisher: {
-          "@id": "https://www.themadhavconsultancy.com/#organization",
-        },
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.themadhavconsultancy.com/#webpage",
-        url: "https://www.themadhavconsultancy.com/",
-        name: "Madhav Consultancy | Business, Growth, Skills & Career – Jaipur",
-        description:
-          "Madhav Consultancy – Educational + Business Coaching, Earning Skill Program (ESP), Company Registration, GST, ITR, MSME, and FSSAI services by Trainer & Mentor Lokesh Verma in Jaipur.",
-        isPartOf: {
-          "@id": "https://www.themadhavconsultancy.com/#website",
-        },
-      },
-      {
-        "@type": "Course",
-        name: "ESP – Earning Skill Program",
-        description:
-          "4-week practical coaching covering 5 essential services: GST Registration, MSME/Udyam, FSSAI, ITR Filing Support, and GST Filing with live portal working.",
-        provider: {
-          "@type": "Organization",
-          name: "Madhav Consultancy",
-          sameAs: "https://www.themadhavconsultancy.com/",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Consultancy & Skill Programs",
+          itemListElement: services.slice(0, 8).map((srv, idx) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: srv.title,
+              description: srv.summary,
+              url: `https://themadhavconsultancy.com/${srv.slug}`,
+            },
+          })),
         },
       },
       {
         "@type": "FAQPage",
+        "@id": "https://themadhavconsultancy.com/#faq",
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
@@ -112,14 +132,14 @@ export default function Home({ onEnquiryOpen }) {
     ],
   };
 
-  usePageMeta(
-    "Madhav Consultancy | Business, Growth, Skills & Career – Jaipur",
-    "Madhav Consultancy – Educational + Business Coaching, Earning Skill Program (ESP), Company Registration, GST, ITR, MSME, and FSSAI services by Trainer & Mentor Lokesh Verma in Jaipur, Rajasthan.",
-    homeSchema
-  );
-
   return (
     <PageTransition>
+      <SEOHead
+        title="Madhav Consultancy: GST, ITR, MSME, FSSAI Services & ESP Skill Program"
+        description="GST, ITR, MSME, FSSAI, Trademark & Company Registration with expert support. Join ESP, our live practical skill program. Free consultation."
+        canonical="/"
+        schema={homeSchema}
+      />
       {/* 3. HERO = ESP advertisement (main focus of the page) */}
       <HeroESP onEnquiryOpen={onEnquiryOpen} />
 

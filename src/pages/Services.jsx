@@ -17,7 +17,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
 import ServiceCard from '../components/ServiceCard';
-import usePageMeta from '../components/usePageMeta';
+import SEOHead from '../components/SEOHead';
 import {
   brand,
   defaultWhatsAppMessage,
@@ -360,12 +360,13 @@ export default function Services() {
       ...services.map((service) => {
         const serviceObj = {
           "@type": "Service",
-          "@id": `https://www.themadhavconsultancy.com/services#${service.slug}`,
+          "@id": `https://themadhavconsultancy.com/${service.slug}#service`,
           "name": service.title,
           "description": service.summary,
+          "url": `https://themadhavconsultancy.com/${service.slug}`,
           "provider": {
             "@type": "LocalBusiness",
-            "@id": "https://www.themadhavconsultancy.com/#localbusiness",
+            "@id": "https://themadhavconsultancy.com/#localbusiness",
             "name": "Madhav Consultancy"
           }
         };
@@ -380,12 +381,6 @@ export default function Services() {
       })
     ]
   };
-
-  usePageMeta(
-    'Services | Madhav Consultancy - Business & Growth Branches',
-    'Explore complete Company Registration, GST Registration, GST Filing, ITR, MSME, FSSAI, Trademark, and Project Reports services by Madhav Consultancy in Jaipur.',
-    servicesSchema
-  );
 
   const filteredServices = services.filter((service) => {
     if (filter === 'All') return true;
@@ -413,6 +408,12 @@ export default function Services() {
 
   return (
     <PageTransition>
+      <SEOHead
+        title="Business & Growth Compliance Services | Madhav Consultancy"
+        description="Explore complete Company Registration, GST, ITR, MSME, FSSAI, Trademark, and Project Reports services by Madhav Consultancy in Jaipur, Rajasthan."
+        canonical="/services"
+        schema={servicesSchema}
+      />
       <section className="inner-hero pt-36 pb-16 bg-gradient-to-b from-navy/5 via-white to-soft">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/20 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-3">

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import EnquiryModal from './components/EnquiryModal';
@@ -8,11 +8,16 @@ import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
 import SmoothScrollProvider from './components/SmoothScrollProvider';
 
-const Home = lazy(() => import('./pages/Home'));
-const Services = lazy(() => import('./pages/Services'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const LegalPage = lazy(() => import('./pages/LegalPage'));
+import Home from './pages/Home';
+import Services from './pages/Services';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import BusinessPage from './pages/BusinessPage';
+import GrowthPage from './pages/GrowthPage';
+import SkillsESPPage from './pages/SkillsESPPage';
+import CareerPage from './pages/CareerPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
+import LegalPage from './pages/LegalPage';
 
 function ScrollRestoration() {
   const location = useLocation();
@@ -50,23 +55,38 @@ function AnimatedRoutes({ onEnquiryOpen }) {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={`${location.pathname}${location.hash}`}>
+        {/* Core Vertical & Informational Routes */}
         <Route path="/" element={<Home onEnquiryOpen={onEnquiryOpen} />} />
-        <Route path="/faq" element={<Navigate to="/#faq" replace />} />
+        <Route path="/business" element={<BusinessPage onEnquiryOpen={onEnquiryOpen} />} />
+        <Route path="/growth" element={<GrowthPage onEnquiryOpen={onEnquiryOpen} />} />
+        <Route path="/skills-esp" element={<SkillsESPPage onEnquiryOpen={onEnquiryOpen} />} />
+        <Route path="/skills" element={<Navigate to="/skills-esp" replace />} />
+        <Route path="/career" element={<CareerPage onEnquiryOpen={onEnquiryOpen} />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/:page" element={<LegalPage />} />
+        <Route path="/faq" element={<Navigate to="/#faq" replace />} />
+
+        {/* Legal Policy Routes */}
+        <Route path="/privacy-policy" element={<LegalPage />} />
+        <Route path="/terms-and-conditions" element={<LegalPage />} />
+        <Route path="/disclaimer" element={<LegalPage />} />
+
+        {/* Dedicated Service Detail Pages */}
+        <Route path="/:serviceSlug" element={<ServiceDetailPage onEnquiryOpen={onEnquiryOpen} />} />
       </Routes>
     </AnimatePresence>
   );
 }
 
 export default function App() {
-  const [preloading, setPreloading] = useState(true);
+  const [preloading, setPreloading] = useState(false);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setPreloading(false), 1550);
+    // Subtle preloader sequence on first client load
+    setPreloading(true);
+    const timer = window.setTimeout(() => setPreloading(false), 1200);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -75,9 +95,7 @@ export default function App() {
       <Preloader visible={preloading} />
       <ScrollRestoration />
       <Navbar onEnquiryOpen={() => setEnquiryOpen(true)} />
-      <Suspense fallback={<div className="min-h-screen bg-soft" />}>
-        <AnimatedRoutes onEnquiryOpen={() => setEnquiryOpen(true)} />
-      </Suspense>
+      <AnimatedRoutes onEnquiryOpen={() => setEnquiryOpen(true)} />
       <Footer onEnquiryOpen={() => setEnquiryOpen(true)} />
       <FloatingActions />
       <EnquiryModal open={enquiryOpen} onClose={() => setEnquiryOpen(false)} />

@@ -112,44 +112,43 @@ export default function Footer({ onEnquiryOpen }) {
             </p>
             <div className="grid gap-2.5 text-xs sm:text-sm font-semibold text-slate-300">
               <Link
-                to="/#business"
-                onClick={() => scrollToBranch('business')}
+                to="/business"
                 className="flex items-center gap-2 transition hover:text-orange"
               >
                 <Briefcase className="h-3.5 w-3.5 text-orange" />
                 <span>Business Solutions (Company, LLP)</span>
               </Link>
               <Link
-                to="/#growth"
-                onClick={() => scrollToBranch('growth')}
+                to="/growth"
                 className="flex items-center gap-2 transition hover:text-emerald-400"
               >
                 <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
                 <span>Growth & Scalability (MSME, Project)</span>
               </Link>
               <Link
-                to="/#skills"
-                onClick={() => scrollToBranch('skills')}
+                to="/skills-esp"
                 className="flex items-center gap-2 transition hover:text-sky-400 font-extrabold text-white"
               >
                 <GraduationCap className="h-3.5 w-3.5 text-sky-400" />
                 <span>Skills (ESP – Earning Skill Program)</span>
               </Link>
               <Link
-                to="/#career"
-                onClick={() => scrollToBranch('career')}
+                to="/career"
                 className="flex items-center gap-2 transition hover:text-purple-400"
               >
                 <UserCheck className="h-3.5 w-3.5 text-purple-400" />
                 <span>Career & Mentorship (Resume, Jobs)</span>
               </Link>
-              <Link
-                to="/services"
-                className="flex items-center gap-2 pt-2 text-xs font-bold text-orange hover:underline"
-              >
-                <span>View All 7 Services Checklist</span>
-                <ArrowRight className="h-3 w-3" />
-              </Link>
+
+              <div className="pt-2 border-t border-white/10 grid gap-1.5 text-xs text-slate-300">
+                <p className="text-[10px] font-black uppercase tracking-wider text-orange">Popular Services:</p>
+                <Link to="/gst-registration" className="hover:text-white transition">GST Registration Online</Link>
+                <Link to="/itr-filing" className="hover:text-white transition">Income Tax Return (ITR)</Link>
+                <Link to="/msme-registration" className="hover:text-white transition">MSME / Udyam Certificate</Link>
+                <Link to="/fssai-license" className="hover:text-white transition">FSSAI Food License</Link>
+                <Link to="/trademark-registration" className="hover:text-white transition">Trademark Registration</Link>
+                <Link to="/company-registration" className="hover:text-white transition">Company (Pvt Ltd) Registration</Link>
+              </div>
             </div>
           </div>
 

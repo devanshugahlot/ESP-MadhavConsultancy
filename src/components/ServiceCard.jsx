@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -11,6 +12,7 @@ import {
   ShieldCheck,
   Store,
   Utensils,
+  ArrowRight,
 } from 'lucide-react';
 import Button from './Button';
 import { whatsappLink } from '../assets/siteData';
@@ -81,12 +83,15 @@ export default function ServiceCard({ service, detailed = false }) {
           <div>
             <p className="mini-heading">Process</p>
             <ul className="mt-3 grid gap-2 text-sm text-slate-600">
-              {service.process.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <FileCheck2 className="mt-0.5 h-4 w-4 flex-none text-orange" />
-                  <span>{item}</span>
-                </li>
-              ))}
+              {service.process.map((item, idx) => {
+                const text = typeof item === 'object' ? (item.title ? `${item.title}: ${item.desc}` : item.desc) : item;
+                return (
+                  <li key={idx} className="flex gap-2">
+                    <FileCheck2 className="mt-0.5 h-4 w-4 flex-none text-orange" />
+                    <span>{text}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div>
@@ -103,14 +108,23 @@ export default function ServiceCard({ service, detailed = false }) {
         </div>
       ) : null}
 
-      <Button
-        href={whatsappLink(service.leadMessage)}
-        icon={MessageCircle}
-        className="mt-6 w-full"
-        magnetic={!detailed}
-      >
-        WhatsApp
-      </Button>
+      <div className="mt-6 flex flex-col sm:flex-row gap-2.5">
+        <Link
+          to={`/${service.slug}`}
+          className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-navy hover:bg-navy/90 text-white font-bold text-xs py-3 px-4 transition text-center shadow-sm"
+        >
+          <span>Detailed Guide</span>
+          <ArrowRight className="h-3.5 w-3.5 text-orange" />
+        </Link>
+        <Button
+          href={whatsappLink(service.leadMessage)}
+          icon={MessageCircle}
+          className="flex-1"
+          magnetic={false}
+        >
+          WhatsApp
+        </Button>
+      </div>
     </article>
   );
 }

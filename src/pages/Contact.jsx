@@ -14,7 +14,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import { EnquiryForm } from '../components/EnquiryModal';
 import PageTransition from '../components/PageTransition';
-import usePageMeta from '../components/usePageMeta';
+import SEOHead from '../components/SEOHead';
 import {
   brand,
   defaultWhatsAppMessage,
@@ -97,14 +97,14 @@ export default function Contact() {
     ],
   };
 
-  usePageMeta(
-    'Contact | Madhav Consultancy - Jaipur, Rajasthan',
-    'Contact Trainer & Mentor Lokesh Verma at Madhav Consultancy, Jaipur for ESP course admissions, company registrations, and taxation services.',
-    contactSchema
-  );
-
   return (
     <PageTransition>
+      <SEOHead
+        title="Contact Us | Madhav Consultancy - Jaipur, Rajasthan"
+        description="Contact Trainer & Mentor Lokesh Verma at Madhav Consultancy, Jaipur for ESP course admissions, company registrations, and taxation services."
+        canonical="/contact"
+        schema={contactSchema}
+      />
       <section className="inner-hero pt-28 sm:pt-36 pb-12 sm:pb-16 bg-gradient-to-b from-navy/5 via-white to-soft">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-orange/10 border border-orange/20 px-3.5 py-1 text-xs font-black text-orange uppercase tracking-wider mb-3">

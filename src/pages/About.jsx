@@ -4,7 +4,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import Button from '../components/Button';
 import FeatureGrid from '../components/FeatureGrid';
 import PageTransition from '../components/PageTransition';
-import usePageMeta from '../components/usePageMeta';
+import SEOHead from '../components/SEOHead';
 import treeImage from '../assets/tree-branches-new.png';
 import {
   brand,
@@ -22,51 +22,51 @@ export default function About() {
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": "https://www.themadhavconsultancy.com/about#breadcrumb",
+        "@id": "https://themadhavconsultancy.com/about#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.themadhavconsultancy.com/",
+            "item": "https://themadhavconsultancy.com/",
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "About Us",
-            "item": "https://www.themadhavconsultancy.com/about",
+            "item": "https://themadhavconsultancy.com/about",
           },
         ],
       },
       {
         "@type": "AboutPage",
-        "@id": "https://www.themadhavconsultancy.com/about#webpage",
-        url: "https://www.themadhavconsultancy.com/about",
+        "@id": "https://themadhavconsultancy.com/about#webpage",
+        url: "https://themadhavconsultancy.com/about",
         name: "About Us | Madhav Consultancy",
         description:
           "Madhav Consultancy – Transforming from a plain service provider to an Educational + Business Coaching ecosystem in Jaipur, Rajasthan.",
         isPartOf: {
           "@type": "WebSite",
-          "@id": "https://www.themadhavconsultancy.com/#website",
+          "@id": "https://themadhavconsultancy.com/#website",
           name: "Madhav Consultancy",
-          url: "https://www.themadhavconsultancy.com/",
+          url: "https://themadhavconsultancy.com/",
         },
         publisher: {
           "@type": "Organization",
-          "@id": "https://www.themadhavconsultancy.com/#organization",
+          "@id": "https://themadhavconsultancy.com/#organization",
         },
       },
     ],
   };
 
-  usePageMeta(
-    'About Us | Madhav Consultancy - Educational & Business Coaching',
-    'Learn how Madhav Consultancy combines business registration and tax services with hands-on coaching through the Earning Skill Program (ESP) in Jaipur, Rajasthan.',
-    aboutSchema
-  );
-
   return (
     <PageTransition>
+      <SEOHead
+        title="About Us: Business & Skill Coaching Ecosystem | Madhav Consultancy"
+        description="Learn how Madhav Consultancy combines business registration and tax services with hands-on coaching through the Earning Skill Program (ESP) in Jaipur."
+        canonical="/about"
+        schema={aboutSchema}
+      />
       <section className="inner-hero pt-36 pb-16 bg-gradient-to-b from-navy/5 via-white to-soft">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.85fr]">
           <div>

@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
-import usePageMeta from '../components/usePageMeta';
+import SEOHead from '../components/SEOHead';
 import { defaultWhatsAppMessage, legalPages, whatsappLink } from '../assets/siteData';
 
 const routeMap = {
@@ -14,53 +14,57 @@ const routeMap = {
 export default function LegalPage() {
   const { page = 'privacy-policy' } = useParams();
   const key = routeMap[page] || 'privacy';
-  const content = legalPages[key];
+  const content = legalPages[key] || legalPages.privacy;
 
   const legalSchema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": `https://www.themadhavconsultancy.com/${page}#breadcrumb`,
+        "@id": `https://themadhavconsultancy.com/${page}#breadcrumb`,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.themadhavconsultancy.com/"
+            "item": "https://themadhavconsultancy.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": content.title,
-            "item": `https://www.themadhavconsultancy.com/${page}`
+            "item": `https://themadhavconsultancy.com/${page}`
           }
         ]
       },
       {
         "@type": "WebPage",
-        "@id": `https://www.themadhavconsultancy.com/${page}#webpage`,
-        "url": `https://www.themadhavconsultancy.com/${page}`,
+        "@id": `https://themadhavconsultancy.com/${page}#webpage`,
+        "url": `https://themadhavconsultancy.com/${page}`,
         "name": `${content.title} | Madhav Consultancy`,
         "description": content.body,
         "isPartOf": {
           "@type": "WebSite",
-          "@id": "https://www.themadhavconsultancy.com/#website",
+          "@id": "https://themadhavconsultancy.com/#website",
           "name": "Madhav Consultancy",
-          "url": "https://www.themadhavconsultancy.com/"
+          "url": "https://themadhavconsultancy.com/"
         },
         "publisher": {
           "@type": "Organization",
-          "@id": "https://www.themadhavconsultancy.com/#organization"
+          "@id": "https://themadhavconsultancy.com/#organization"
         }
       }
     ]
   };
 
-  usePageMeta(`${content.title} | Madhav Consultancy`, content.body, legalSchema);
-
   return (
     <PageTransition>
+      <SEOHead
+        title={`${content.title} | Madhav Consultancy`}
+        description={content.body}
+        canonical={`/${page}`}
+        schema={legalSchema}
+      />
       <section className="inner-hero min-h-[70vh]">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <p className="eyebrow">Legal</p>
